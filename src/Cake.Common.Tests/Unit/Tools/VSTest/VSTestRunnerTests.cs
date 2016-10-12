@@ -180,6 +180,61 @@ namespace Cake.Common.Tests.Unit.Tools.VSTest
         }
 
         [Fact]
+        public void Should_Not_Use_UseVsixExtensions_By_Default()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\"", result.Args);
+        }
+
+        [Fact]
+        public void Should_Enable_UseVsixExtensions_If_Enabled_In_Settings()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.UseVsixExtensions = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /UseVsixExtensions:true", result.Args);
+        }
+
+        [Fact]
+        public void Should_Disable_UseVsixExtensions_If_Disabled_In_Settings()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.UseVsixExtensions = false;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /UseVsixExtensions:false", result.Args);
+        }
+
+        [Fact]
+        public void Should_Use_TestAdapterPath_If_Provided()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.TestAdapterPath = new DirectoryPath("Path to/test adapters");
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /TestAdapterPath:\"/Working/Path to/test adapters\"", result.Args);
+        }
+
+        [Fact]
         public void Should_Use_Logger_If_Provided()
         {
             // Given
@@ -191,6 +246,20 @@ namespace Cake.Common.Tests.Unit.Tools.VSTest
 
             // Then
             Assert.Equal("\"/Working/Test1.dll\" /Logger:trx", result.Args);
+        }
+
+        [Fact]
+        public void Should_Use_Diag_If_Provided()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.Diag = new FilePath("Path to/diag log.txt");
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /Diag:\"/Working/Path to/diag log.txt\"", result.Args);
         }
 
         [Fact]
@@ -222,6 +291,60 @@ namespace Cake.Common.Tests.Unit.Tools.VSTest
         }
 
         [Fact]
+        public void Should_Not_Use_Parallel_By_Default()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\"", result.Args);
+        }
+
+        [Fact]
+        public void Should_Use_Parallel_If_Enabled_In_Settings()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.Parallel = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /Parallel", result.Args);
+        }
+
+        [Fact]
+        public void Should_Not_Use_EnableCodeCoverage_By_Default()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\"", result.Args);
+        }
+
+        [Fact]
+        public void Should_Use_EnableCodeCoverage_If_Enabled_In_Settings()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.EnableCodeCoverage = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /EnableCodeCoverage", result.Args);
+        }
+
+        [Fact]
         public void Should_Use_PlatformArchitecture_If_Provided()
         {
             // Given
@@ -247,6 +370,20 @@ namespace Cake.Common.Tests.Unit.Tools.VSTest
 
             // Then
             Assert.Equal("\"/Working/Test1.dll\" /Framework:Framework40", result.Args);
+        }
+
+        [Fact]
+        public void Should_Use_TestCaseFilter_If_Provided()
+        {
+            // Given
+            var fixture = new VSTestRunnerFixture();
+            fixture.Settings.TestCaseFilter = "(FullyQualifiedName~Nightly|Name=MyTestMethod)";
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Equal("\"/Working/Test1.dll\" /TestCaseFilter:\"(FullyQualifiedName~Nightly|Name=MyTestMethod)\"", result.Args);
         }
 
         [Fact]
