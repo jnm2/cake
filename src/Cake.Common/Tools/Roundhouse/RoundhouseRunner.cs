@@ -129,7 +129,7 @@ namespace Cake.Common.Tools.Roundhouse
         {
             if (value != null)
             {
-                builder.AppendQuoted("--{0}={1}", key, value);
+                builder.Append("--{0}={1}", key, value);
             }
         }
 
@@ -137,7 +137,7 @@ namespace Cake.Common.Tools.Roundhouse
         {
             if (value != null)
             {
-                builder.AppendQuotedSecret("--{0}={1}", key, value);
+                builder.AppendSecret("--{0}={1}", key, value);
             }
         }
 

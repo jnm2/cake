@@ -80,20 +80,20 @@ namespace Cake.Common.Tools.NuGet.Install
             var builder = new ProcessArgumentBuilder();
 
             builder.Append("install");
-            builder.AppendQuoted(packageId);
+            builder.Append(packageId);
 
             // Output Directory.
             if (settings.OutputDirectory != null)
             {
                 builder.Append("-OutputDirectory");
-                builder.AppendQuoted(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Version.
             if (settings.Version != null)
             {
                 builder.Append("-Version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             // ExcludeVersion?
@@ -118,21 +118,21 @@ namespace Cake.Common.Tools.NuGet.Install
             if (settings.SolutionDirectory != null)
             {
                 builder.Append("-SolutionDirectory");
-                builder.AppendQuoted(settings.SolutionDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.SolutionDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // List of package sources.
             if (settings.Source != null && settings.Source.Count > 0)
             {
                 builder.Append("-Source");
-                builder.AppendQuoted(string.Join(";", settings.Source));
+                builder.Append(string.Join(";", settings.Source));
             }
 
             // List of package fallback sources.
             if (settings.FallbackSource != null && settings.FallbackSource.Count > 0)
             {
                 builder.Append("-FallbackSource");
-                builder.AppendQuoted(string.Join(";", settings.FallbackSource));
+                builder.Append(string.Join(";", settings.FallbackSource));
             }
 
             // No Cache?
@@ -158,7 +158,7 @@ namespace Cake.Common.Tools.NuGet.Install
             if (settings.ConfigFile != null)
             {
                 builder.Append("-ConfigFile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             builder.Append("-NonInteractive");

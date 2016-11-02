@@ -65,7 +65,7 @@ namespace Cake.Common.Tools.NuGet.Push
             var builder = new ProcessArgumentBuilder();
             builder.Append("push");
 
-            builder.AppendQuoted(packageFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(packageFilePath.MakeAbsolute(_environment).FullPath);
 
             if (settings.ApiKey != null)
             {
@@ -77,13 +77,13 @@ namespace Cake.Common.Tools.NuGet.Push
             if (settings.ConfigFile != null)
             {
                 builder.Append("-ConfigFile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.Source != null)
             {
                 builder.Append("-Source");
-                builder.AppendQuoted(settings.Source);
+                builder.Append(settings.Source);
             }
             else
             {

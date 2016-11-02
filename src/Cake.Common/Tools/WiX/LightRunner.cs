@@ -94,7 +94,7 @@ namespace Cake.Common.Tools.WiX
             if (!string.IsNullOrEmpty(settings.OutputFile?.FullPath))
             {
                 builder.Append("-o");
-                builder.AppendQuoted(settings.OutputFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputFile.MakeAbsolute(_environment).FullPath);
             }
 
             // Raw arguments
@@ -106,7 +106,7 @@ namespace Cake.Common.Tools.WiX
             // Object files (.wixobj)
             foreach (var objectFile in objectFiles.Select(file => file.MakeAbsolute(_environment).FullPath))
             {
-                builder.AppendQuoted(objectFile);
+                builder.Append(objectFile);
             }
 
             return builder;

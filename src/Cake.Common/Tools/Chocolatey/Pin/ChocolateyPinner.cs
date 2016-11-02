@@ -60,13 +60,13 @@ namespace Cake.Common.Tools.Chocolatey.Pin
             builder.Append("add");
 
             builder.Append("-n");
-            builder.AppendQuoted(name);
+            builder.Append(name);
 
             // Version
             if (settings.Version != null)
             {
                 builder.Append("--version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             // Debug
@@ -106,14 +106,14 @@ namespace Cake.Common.Tools.Chocolatey.Pin
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial

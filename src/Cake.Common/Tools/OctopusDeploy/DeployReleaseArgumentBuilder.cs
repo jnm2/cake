@@ -33,9 +33,9 @@ namespace Cake.Common.Tools.OctopusDeploy
         {
             Builder.Append("deploy-release");
 
-            Builder.AppendSwitchQuoted("--project", "=", _projectName);
-            Builder.AppendSwitchQuoted("--deployto", "=", _deployTo);
-            Builder.AppendSwitchQuoted("--releasenumber", "=", _releaseNumber);
+            Builder.AppendSwitch("--project", "=", _projectName);
+            Builder.AppendSwitch("--deployto", "=", _deployTo);
+            Builder.AppendSwitch("--releasenumber", "=", _releaseNumber);
 
             AppendCommonArguments();
 
@@ -52,7 +52,7 @@ namespace Cake.Common.Tools.OctopusDeploy
 
             if (_settings.DeploymentTimeout.HasValue)
             {
-                Builder.AppendSwitchQuoted("--deploymenttimeout", "=",
+                Builder.AppendSwitch("--deploymenttimeout", "=",
                     _settings.DeploymentTimeout.Value.ToString("hh\\:mm\\:ss"));
             }
 
@@ -60,7 +60,7 @@ namespace Cake.Common.Tools.OctopusDeploy
 
             if (_settings.DeploymentChecksLeepCycle.HasValue)
             {
-                Builder.AppendSwitchQuoted("--deploymentchecksleepcycle", "=",
+                Builder.AppendSwitch("--deploymentchecksleepcycle", "=",
                     _settings.DeploymentChecksLeepCycle.Value.ToString("hh\\:mm\\:ss"));
             }
 
@@ -71,7 +71,7 @@ namespace Cake.Common.Tools.OctopusDeploy
 
             if (_settings.SpecificMachines != null && _settings.SpecificMachines.Length > 0)
             {
-                Builder.AppendSwitchQuoted("--specificmachines", "=", string.Join(",", _settings.SpecificMachines));
+                Builder.AppendSwitch("--specificmachines", "=", string.Join(",", _settings.SpecificMachines));
             }
 
             AppendConditionalFlag(_settings.Force, "--force");
@@ -86,13 +86,13 @@ namespace Cake.Common.Tools.OctopusDeploy
             {
                 foreach (var pair in _settings.Variables)
                 {
-                    Builder.AppendSwitchQuoted("--variable", "=", $"{pair.Key}:{pair.Value}");
+                    Builder.AppendSwitch("--variable", "=", $"{pair.Key}:{pair.Value}");
                 }
             }
 
             if (_settings.DeployAt.HasValue)
             {
-                Builder.AppendSwitchQuoted("--deployat", "=", _settings.DeployAt.Value.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture));
+                Builder.AppendSwitch("--deployat", "=", _settings.DeployAt.Value.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture));
             }
 
             AppendMultipleTimes("tenant", _settings.Tenant);

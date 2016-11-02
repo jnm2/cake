@@ -77,36 +77,36 @@ namespace Cake.Common.Tools.GitReleaseManager.Create
             builder.Append("create");
 
             builder.Append("-u");
-            builder.AppendQuoted(userName);
+            builder.Append(userName);
 
             builder.Append("-p");
-            builder.AppendQuotedSecret(password);
+            builder.AppendSecret(password);
 
             builder.Append("-o");
-            builder.AppendQuoted(owner);
+            builder.Append(owner);
 
             builder.Append("-r");
-            builder.AppendQuoted(repository);
+            builder.Append(repository);
 
             // Milestone
             if (!string.IsNullOrWhiteSpace(settings.Milestone))
             {
                 builder.Append("-m");
-                builder.AppendQuoted(settings.Milestone);
+                builder.Append(settings.Milestone);
             }
 
             // Name
             if (!string.IsNullOrWhiteSpace(settings.Name))
             {
                 builder.Append("-n");
-                builder.AppendQuoted(settings.Name);
+                builder.Append(settings.Name);
             }
 
             // Input File Path
             if (settings.InputFilePath != null)
             {
                 builder.Append("-i");
-                builder.AppendQuoted(settings.InputFilePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.InputFilePath.MakeAbsolute(_environment).FullPath);
             }
 
             // Prerelease?
@@ -119,28 +119,28 @@ namespace Cake.Common.Tools.GitReleaseManager.Create
             if (!string.IsNullOrWhiteSpace(settings.Assets))
             {
                 builder.Append("-a");
-                builder.AppendQuoted(settings.Assets);
+                builder.Append(settings.Assets);
             }
 
             // Target Commitish
             if (!string.IsNullOrWhiteSpace(settings.TargetCommitish))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.TargetCommitish);
+                builder.Append(settings.TargetCommitish);
             }
 
             // Target Directory
             if (settings.TargetDirectory != null)
             {
                 builder.Append("-d");
-                builder.AppendQuoted(settings.TargetDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.TargetDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Log File Path
             if (settings.LogFilePath != null)
             {
                 builder.Append("-l");
-                builder.AppendQuoted(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
             }
 
             return builder;

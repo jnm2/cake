@@ -60,21 +60,21 @@ namespace Cake.Common.Tools.Fixie
             // Add the assemblies to build.
             foreach (var assemblyPath in assemblyPaths)
             {
-                builder.AppendQuoted(assemblyPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(assemblyPath.MakeAbsolute(_environment).FullPath);
             }
 
             // Add NUnit style reporting if necessary.
             if (settings.NUnitXml != null)
             {
                 builder.Append("--NUnitXml");
-                builder.AppendQuoted(settings.NUnitXml.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.NUnitXml.MakeAbsolute(_environment).FullPath);
             }
 
             // Add xUnit style reporting if necessary.
             if (settings.XUnitXml != null)
             {
                 builder.Append("--xUnitXml");
-                builder.AppendQuoted(settings.XUnitXml.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.XUnitXml.MakeAbsolute(_environment).FullPath);
             }
 
             // Check if TeamCity output should be enabled.

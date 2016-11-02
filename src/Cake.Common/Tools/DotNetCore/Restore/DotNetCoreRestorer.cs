@@ -61,14 +61,14 @@ namespace Cake.Common.Tools.DotNetCore.Restore
             // Specific root?
             if (root != null)
             {
-                builder.AppendQuoted(root);
+                builder.Append(root);
             }
 
             // Output directory
             if (settings.PackagesDirectory != null)
             {
                 builder.Append("--packages");
-                builder.AppendQuoted(settings.PackagesDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.PackagesDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Sources
@@ -77,7 +77,7 @@ namespace Cake.Common.Tools.DotNetCore.Restore
                 foreach (var source in settings.Sources)
                 {
                     builder.Append("--source");
-                    builder.AppendQuoted(source);
+                    builder.Append(source);
                 }
             }
 
@@ -87,7 +87,7 @@ namespace Cake.Common.Tools.DotNetCore.Restore
                 foreach (var source in settings.FallbackSources)
                 {
                     builder.Append("--fallbacksource");
-                    builder.AppendQuoted(source);
+                    builder.Append(source);
                 }
             }
 
@@ -95,7 +95,7 @@ namespace Cake.Common.Tools.DotNetCore.Restore
             if (settings.ConfigFile != null)
             {
                 builder.Append("--configfile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             // List of runtime identifiers
@@ -104,7 +104,7 @@ namespace Cake.Common.Tools.DotNetCore.Restore
                 foreach (var runtime in settings.InferRuntimes)
                 {
                     builder.Append("--infer-runtimes");
-                    builder.AppendQuoted(runtime);
+                    builder.Append(runtime);
                 }
             }
 #pragma warning disable 0618

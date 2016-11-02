@@ -81,7 +81,7 @@ namespace Cake.Common.Tools.Chocolatey.Features
             builder.Append(enableDisableToggle ? "enable" : "disable");
 
             builder.Append("-n");
-            builder.AppendQuoted(name);
+            builder.Append(name);
 
             // Debug
             if (settings.Debug)
@@ -120,14 +120,14 @@ namespace Cake.Common.Tools.Chocolatey.Features
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial

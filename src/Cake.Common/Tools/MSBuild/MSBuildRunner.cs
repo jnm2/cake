@@ -82,7 +82,7 @@ namespace Cake.Common.Tools.MSBuild
             if (!string.IsNullOrWhiteSpace(settings.Configuration))
             {
                 // Add the configuration as a property.
-                builder.AppendSwitchQuoted("/p:Configuration", "=", settings.Configuration);
+                builder.AppendSwitch("/p:Configuration", "=", settings.Configuration);
             }
 
             // Build for a specific platform?
@@ -138,7 +138,7 @@ namespace Cake.Common.Tools.MSBuild
             }
 
             // Add the solution as the last parameter.
-            builder.AppendQuoted(solution.MakeAbsolute(_environment).FullPath);
+            builder.Append(solution.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

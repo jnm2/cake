@@ -145,25 +145,25 @@ namespace Cake.Common.Tools.NuGet.Pack
             if (!string.IsNullOrWhiteSpace(settings.Version))
             {
                 builder.Append("-Version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             // Base path
             if (settings.BasePath != null)
             {
                 builder.Append("-BasePath");
-                builder.AppendQuoted(settings.BasePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.BasePath.MakeAbsolute(_environment).FullPath);
             }
 
             // Output directory
             if (settings.OutputDirectory != null)
             {
                 builder.Append("-OutputDirectory");
-                builder.AppendQuoted(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Nuspec file
-            builder.AppendQuoted(filePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(filePath.MakeAbsolute(_environment).FullPath);
 
             // No package analysis?
             if (settings.NoPackageAnalysis)

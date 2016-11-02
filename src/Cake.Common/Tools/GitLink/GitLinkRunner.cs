@@ -57,54 +57,54 @@ namespace Cake.Common.Tools.GitLink
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.AppendQuoted(repositoryRootPath.MakeAbsolute(_environment).FullPath);
+            builder.Append(repositoryRootPath.MakeAbsolute(_environment).FullPath);
 
             if (!string.IsNullOrWhiteSpace(settings.RepositoryUrl))
             {
                 builder.Append("-u");
-                builder.AppendQuoted(settings.RepositoryUrl);
+                builder.Append(settings.RepositoryUrl);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.SolutionFileName))
             {
                 builder.Append("-f");
-                builder.AppendQuoted(settings.SolutionFileName);
+                builder.Append(settings.SolutionFileName);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Configuration))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.Configuration);
+                builder.Append(settings.Configuration);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Platform))
             {
                 builder.Append("-p");
-                builder.AppendQuoted(settings.Platform);
+                builder.Append(settings.Platform);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Branch))
             {
                 builder.Append("-b");
-                builder.AppendQuoted(settings.Branch);
+                builder.Append(settings.Branch);
             }
 
             if (settings.LogFilePath != null)
             {
                 builder.Append("-l");
-                builder.AppendQuoted(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.ShaHash))
             {
                 builder.Append("-s");
-                builder.AppendQuoted(settings.ShaHash);
+                builder.Append(settings.ShaHash);
             }
 
             if (settings.PdbDirectoryPath != null)
             {
                 builder.Append("-d");
-                builder.AppendQuoted(settings.PdbDirectoryPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.PdbDirectoryPath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.UsePowerShell)

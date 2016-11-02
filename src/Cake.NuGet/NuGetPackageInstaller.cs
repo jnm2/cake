@@ -192,18 +192,18 @@ namespace Cake.NuGet
             var arguments = new ProcessArgumentBuilder();
 
             arguments.Append("install");
-            arguments.AppendQuoted(definition.Package);
+            arguments.Append(definition.Package);
 
             // Output directory
             arguments.Append("-OutputDirectory");
-            arguments.AppendQuoted(installationRoot.FullPath);
+            arguments.Append(installationRoot.FullPath);
 
             // if an absolute uri is specified for source, use this
             // otherwise check config for customise package source/s
             if (definition.Address != null)
             {
                 arguments.Append("-Source");
-                arguments.AppendQuoted(definition.Address.AbsoluteUri);
+                arguments.Append(definition.Address.AbsoluteUri);
             }
             else
             {
@@ -211,7 +211,7 @@ namespace Cake.NuGet
                 if (!string.IsNullOrWhiteSpace(nugetSource))
                 {
                     arguments.Append("-Source");
-                    arguments.AppendQuoted(nugetSource);
+                    arguments.Append(nugetSource);
                 }
             }
 
@@ -219,7 +219,7 @@ namespace Cake.NuGet
             if (definition.Parameters.ContainsKey("version"))
             {
                 arguments.Append("-Version");
-                arguments.AppendQuoted(definition.Parameters["version"].First());
+                arguments.Append(definition.Parameters["version"].First());
             }
 
             // Prerelease

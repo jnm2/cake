@@ -157,14 +157,14 @@ namespace Cake.Common.Tools.NuGet.Sources
             if (!string.IsNullOrWhiteSpace(settings.UserName))
             {
                 builder.Append("-UserName");
-                builder.AppendQuoted(settings.UserName);
+                builder.Append(settings.UserName);
             }
 
             // Password specified?
             if (!string.IsNullOrWhiteSpace(settings.Password))
             {
                 builder.Append("-Password");
-                builder.AppendQuotedSecret(settings.Password);
+                builder.AppendSecret(settings.Password);
             }
 
             // Store password in plain text?
@@ -190,17 +190,17 @@ namespace Cake.Common.Tools.NuGet.Sources
         private static void AddCommonParameters(string name, string source, NuGetSourcesSettings settings, ProcessArgumentBuilder builder)
         {
             builder.Append("-Name");
-            builder.AppendQuoted(name);
+            builder.Append(name);
 
             builder.Append("-Source");
             if (settings.IsSensitiveSource)
             {
                 // Sensitive information in source.
-                builder.AppendQuotedSecret(source);
+                builder.AppendSecret(source);
             }
             else
             {
-                builder.AppendQuoted(source);
+                builder.Append(source);
             }
 
             // Verbosity?

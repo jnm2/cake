@@ -162,14 +162,14 @@ namespace Cake.Common.Tools.Chocolatey.Pack
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial
@@ -182,11 +182,11 @@ namespace Cake.Common.Tools.Chocolatey.Pack
             if (!string.IsNullOrWhiteSpace(settings.Version))
             {
                 builder.Append("--version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             // Nuspec file
-            builder.AppendQuoted(nuspecFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(nuspecFilePath.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

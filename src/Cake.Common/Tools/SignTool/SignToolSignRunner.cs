@@ -115,7 +115,7 @@ namespace Cake.Common.Tools.SignTool
             {
                 // If Sha256 use RFC 3161 timestamp server.
                 builder.Append("/tr");
-                builder.AppendQuoted(settings.TimeStampUri.AbsoluteUri);
+                builder.Append(settings.TimeStampUri.AbsoluteUri);
 
                 builder.Append("/td sha256");
             }
@@ -123,7 +123,7 @@ namespace Cake.Common.Tools.SignTool
             {
                 // Otherwise use SHA-1 Authenticode timestamp server
                 builder.Append("/t");
-                builder.AppendQuoted(settings.TimeStampUri.AbsoluteUri);
+                builder.Append(settings.TimeStampUri.AbsoluteUri);
             }
 
             if (settings.CertPath == null && string.IsNullOrEmpty(settings.CertThumbprint))
@@ -170,7 +170,7 @@ namespace Cake.Common.Tools.SignTool
 
                 // Path to PFX Certificate.
                 builder.Append("/f");
-                builder.AppendQuoted(settings.CertPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.CertPath.MakeAbsolute(_environment).FullPath);
 
                 // PFX Password.
                 builder.Append("/p");
@@ -181,21 +181,21 @@ namespace Cake.Common.Tools.SignTool
             if (!string.IsNullOrEmpty(settings.CertThumbprint))
             {
                 builder.Append("/sha1");
-                builder.AppendQuoted(settings.CertThumbprint);
+                builder.Append(settings.CertThumbprint);
             }
 
             // Signed content description.
             if (!string.IsNullOrEmpty(settings.Description))
             {
                 builder.Append("/d");
-                builder.AppendQuoted(settings.Description);
+                builder.Append(settings.Description);
             }
 
             // Signed content expanded description URL.
             if (settings.DescriptionUri != null)
             {
                 builder.Append("/du");
-                builder.AppendQuoted(settings.DescriptionUri.AbsoluteUri);
+                builder.Append(settings.DescriptionUri.AbsoluteUri);
             }
 
             // Append signature.
@@ -205,7 +205,7 @@ namespace Cake.Common.Tools.SignTool
             }
 
             // Target Assembly to sign.
-            builder.AppendQuoted(assemblyPath.MakeAbsolute(_environment).FullPath);
+            builder.Append(assemblyPath.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

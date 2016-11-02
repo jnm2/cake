@@ -59,7 +59,7 @@ namespace Cake.Common.Tools.NuGet.Restore
             var builder = new ProcessArgumentBuilder();
 
             builder.Append("restore");
-            builder.AppendQuoted(targetFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(targetFilePath.MakeAbsolute(_environment).FullPath);
 
             // RequireConsent?
             if (settings.RequireConsent)
@@ -71,21 +71,21 @@ namespace Cake.Common.Tools.NuGet.Restore
             if (settings.PackagesDirectory != null)
             {
                 builder.Append("-PackagesDirectory");
-                builder.AppendQuoted(settings.PackagesDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.PackagesDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // List of package sources.
             if (settings.Source != null && settings.Source.Count > 0)
             {
                 builder.Append("-Source");
-                builder.AppendQuoted(string.Join(";", settings.Source));
+                builder.Append(string.Join(";", settings.Source));
             }
 
             // List of package fallback sources.
             if (settings.FallbackSource != null && settings.FallbackSource.Count > 0)
             {
                 builder.Append("-FallbackSource");
-                builder.AppendQuoted(string.Join(";", settings.FallbackSource));
+                builder.Append(string.Join(";", settings.FallbackSource));
             }
 
             // No Cache?
@@ -111,7 +111,7 @@ namespace Cake.Common.Tools.NuGet.Restore
             if (settings.ConfigFile != null)
             {
                 builder.Append("-ConfigFile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             // MSBuildVersion?

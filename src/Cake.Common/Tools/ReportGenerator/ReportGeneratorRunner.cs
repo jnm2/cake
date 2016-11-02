@@ -70,42 +70,42 @@ namespace Cake.Common.Tools.ReportGenerator
             var builder = new ProcessArgumentBuilder();
 
             var joinedReports = string.Join(";", reports.Select(r => r.MakeAbsolute(_environment).FullPath));
-            AppendQuoted(builder, "reports", joinedReports);
+            Append(builder, "reports", joinedReports);
 
-            AppendQuoted(builder, "targetdir", targetDir.MakeAbsolute(_environment).FullPath);
+            Append(builder, "targetdir", targetDir.MakeAbsolute(_environment).FullPath);
 
             if (settings.ReportTypes != null && settings.ReportTypes.Any())
             {
                 var joined = string.Join(";", settings.ReportTypes);
-                AppendQuoted(builder, "reporttypes", joined);
+                Append(builder, "reporttypes", joined);
             }
 
             if (settings.SourceDirectories != null && settings.SourceDirectories.Any())
             {
                 var joined = string.Join(";", settings.SourceDirectories.Select(d => d.MakeAbsolute(_environment).FullPath));
-                AppendQuoted(builder, "sourcedirs", joined);
+                Append(builder, "sourcedirs", joined);
             }
 
             if (settings.HistoryDirectory != null)
             {
-                AppendQuoted(builder, "historydir", settings.HistoryDirectory.MakeAbsolute(_environment).FullPath);
+                Append(builder, "historydir", settings.HistoryDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.AssemblyFilters != null && settings.AssemblyFilters.Any())
             {
                 var joined = string.Join(";", settings.AssemblyFilters);
-                AppendQuoted(builder, "assemblyfilters", joined);
+                Append(builder, "assemblyfilters", joined);
             }
 
             if (settings.ClassFilters != null && settings.ClassFilters.Any())
             {
                 var joined = string.Join(";", settings.ClassFilters);
-                AppendQuoted(builder, "classfilters", joined);
+                Append(builder, "classfilters", joined);
             }
 
             if (settings.Verbosity != null)
             {
-                AppendQuoted(builder, "verbosity", settings.Verbosity.ToString());
+                Append(builder, "verbosity", settings.Verbosity.ToString());
             }
 
             return builder;
@@ -129,9 +129,9 @@ namespace Cake.Common.Tools.ReportGenerator
             return new[] { "ReportGenerator.exe" };
         }
 
-        private void AppendQuoted(ProcessArgumentBuilder builder, string key, string value)
+        private void Append(ProcessArgumentBuilder builder, string key, string value)
         {
-            builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "-{0}:{1}", key, value));
+            builder.Append(string.Format(CultureInfo.InvariantCulture, "-{0}:{1}", key, value));
         }
     }
 }

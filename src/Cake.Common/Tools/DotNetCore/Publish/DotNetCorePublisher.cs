@@ -56,21 +56,21 @@ namespace Cake.Common.Tools.DotNetCore.Publish
             // Specific path?
             if (path != null)
             {
-                builder.AppendQuoted(path);
+                builder.Append(path);
             }
 
             // Output directory
             if (settings.OutputDirectory != null)
             {
                 builder.Append("--output");
-                builder.AppendQuoted(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Build base path
             if (settings.BuildBasePath != null)
             {
                 builder.Append("--build-base-path");
-                builder.AppendQuoted(settings.BuildBasePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.BuildBasePath.MakeAbsolute(_environment).FullPath);
             }
 
             // Runtime

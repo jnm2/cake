@@ -57,7 +57,7 @@ namespace Cake.Common.Tools.DNU.Restore
             // Specific project path?
             if (path != null)
             {
-                builder.AppendQuoted(path.MakeAbsolute(_environment).FullPath);
+                builder.Append(path.MakeAbsolute(_environment).FullPath);
             }
 
             // List of package sources
@@ -66,7 +66,7 @@ namespace Cake.Common.Tools.DNU.Restore
                 foreach (var source in settings.Sources)
                 {
                     builder.Append("--source");
-                    builder.AppendQuoted(source);
+                    builder.Append(source);
                 }
             }
 
@@ -76,7 +76,7 @@ namespace Cake.Common.Tools.DNU.Restore
                 foreach (var fallbacksource in settings.FallbackSources)
                 {
                     builder.Append("--fallbacksource");
-                    builder.AppendQuoted(fallbacksource);
+                    builder.Append(fallbacksource);
                 }
             }
 
@@ -84,7 +84,7 @@ namespace Cake.Common.Tools.DNU.Restore
             if (settings.Proxy != null)
             {
                 builder.Append("--proxy");
-                builder.AppendQuoted(settings.Proxy);
+                builder.Append(settings.Proxy);
             }
 
             // No Cache?
@@ -97,7 +97,7 @@ namespace Cake.Common.Tools.DNU.Restore
             if (settings.Packages != null)
             {
                 builder.Append("--packages");
-                builder.AppendQuoted(settings.Packages.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.Packages.MakeAbsolute(_environment).FullPath);
             }
 
             // Ignore failed sources?
@@ -138,7 +138,7 @@ namespace Cake.Common.Tools.DNU.Restore
                 foreach (var runtime in settings.Runtimes)
                 {
                     builder.Append("--runtime");
-                    builder.AppendQuoted(runtime);
+                    builder.Append(runtime);
                 }
             }
 

@@ -77,11 +77,11 @@ namespace Cake.Common.Tools.NuGet.SetApiKey
             var builder = new ProcessArgumentBuilder();
 
             builder.Append("setapikey");
-            builder.AppendQuotedSecret(apiKey);
+            builder.AppendSecret(apiKey);
 
             // Source
             builder.Append("-Source");
-            builder.AppendQuoted(source);
+            builder.Append(source);
 
             // Verbosity?
             if (settings.Verbosity.HasValue)
@@ -94,7 +94,7 @@ namespace Cake.Common.Tools.NuGet.SetApiKey
             if (settings.ConfigFile != null)
             {
                 builder.Append("-ConfigFile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             builder.Append("-NonInteractive");

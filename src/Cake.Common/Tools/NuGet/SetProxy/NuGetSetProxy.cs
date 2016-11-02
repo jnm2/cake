@@ -98,7 +98,7 @@ namespace Cake.Common.Tools.NuGet.SetProxy
             if (settings.ConfigFile != null)
             {
                 builder.Append("-ConfigFile");
-                builder.AppendQuoted(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ConfigFile.MakeAbsolute(_environment).FullPath);
             }
 
             builder.Append("-NonInteractive");

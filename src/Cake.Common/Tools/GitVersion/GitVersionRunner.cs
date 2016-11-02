@@ -99,10 +99,10 @@ namespace Cake.Common.Tools.GitVersion
             if (!string.IsNullOrWhiteSpace(settings.UserName))
             {
                 builder.Append("-u");
-                builder.AppendQuoted(settings.UserName);
+                builder.Append(settings.UserName);
 
                 builder.Append("-p");
-                builder.AppendQuotedSecret(settings.Password);
+                builder.AppendSecret(settings.Password);
             }
 
             if (settings.UpdateAssemblyInfo)
@@ -111,19 +111,19 @@ namespace Cake.Common.Tools.GitVersion
 
                 if (settings.UpdateAssemblyInfoFilePath != null)
                 {
-                    builder.AppendQuoted(settings.UpdateAssemblyInfoFilePath.FullPath);
+                    builder.Append(settings.UpdateAssemblyInfoFilePath.FullPath);
                 }
             }
 
             if (settings.RepositoryPath != null)
             {
                 builder.Append("-targetpath");
-                builder.AppendQuoted(settings.RepositoryPath.FullPath);
+                builder.Append(settings.RepositoryPath.FullPath);
             }
             else if (!string.IsNullOrWhiteSpace(settings.Url))
             {
                 builder.Append("-url");
-                builder.AppendQuoted(settings.Url);
+                builder.Append(settings.Url);
 
                 if (!string.IsNullOrWhiteSpace(settings.Branch))
                 {
@@ -138,20 +138,20 @@ namespace Cake.Common.Tools.GitVersion
                 if (!string.IsNullOrWhiteSpace(settings.Commit))
                 {
                     builder.Append("-c");
-                    builder.AppendQuoted(settings.Commit);
+                    builder.Append(settings.Commit);
                 }
 
                 if (settings.DynamicRepositoryPath != null)
                 {
                     builder.Append("-dynamicRepoLocation");
-                    builder.AppendQuoted(settings.DynamicRepositoryPath.FullPath);
+                    builder.Append(settings.DynamicRepositoryPath.FullPath);
                 }
             }
 
             if (settings.LogFilePath != null)
             {
                 builder.Append("-l");
-                builder.AppendQuoted(settings.LogFilePath.FullPath);
+                builder.Append(settings.LogFilePath.FullPath);
             }
 
             if (settings.NoFetch)

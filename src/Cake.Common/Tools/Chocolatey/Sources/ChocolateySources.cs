@@ -145,14 +145,14 @@ namespace Cake.Common.Tools.Chocolatey.Sources
             if (!string.IsNullOrWhiteSpace(settings.UserName))
             {
                 builder.Append("-u");
-                builder.AppendQuoted(settings.UserName);
+                builder.Append(settings.UserName);
             }
 
             // Password specified?
             if (!string.IsNullOrWhiteSpace(settings.Password))
             {
                 builder.Append("-p");
-                builder.AppendQuotedSecret(settings.Password);
+                builder.AppendSecret(settings.Password);
             }
 
             return builder;
@@ -194,12 +194,12 @@ namespace Cake.Common.Tools.Chocolatey.Sources
         private static void AddCommonParameters(string name, string source, ChocolateySourcesSettings settings, ProcessArgumentBuilder builder)
         {
             builder.Append("-n");
-            builder.AppendQuoted(name);
+            builder.Append(name);
 
             if (!string.IsNullOrWhiteSpace(source))
             {
                 builder.Append("-s");
-                builder.AppendQuoted(source);
+                builder.Append(source);
             }
 
             // Debug
@@ -239,14 +239,14 @@ namespace Cake.Common.Tools.Chocolatey.Sources
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial
@@ -258,7 +258,7 @@ namespace Cake.Common.Tools.Chocolatey.Sources
             if (settings.Priority > 0)
             {
                 builder.Append("--priority");
-                builder.AppendQuoted(settings.Priority.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.Priority.ToString(CultureInfo.InvariantCulture));
             }
         }
     }

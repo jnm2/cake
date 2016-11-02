@@ -31,7 +31,7 @@ namespace Cake.Common.Tools.OctopusDeploy
 
             foreach (var packagePath in _packagePaths)
             {
-                Builder.AppendSwitchQuoted("--package", packagePath.MakeAbsolute(Environment).FullPath);
+                Builder.AppendSwitch("--package", packagePath.MakeAbsolute(Environment).FullPath);
             }
 
             if (Settings.ReplaceExisting)

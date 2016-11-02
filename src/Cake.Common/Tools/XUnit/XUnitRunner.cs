@@ -73,12 +73,12 @@ namespace Cake.Common.Tools.XUnit
             assemblyPath = assemblyPath.MakeAbsolute(_environment);
 
             // Add the assembly to build.
-            builder.AppendQuoted(assemblyPath.FullPath);
+            builder.Append(assemblyPath.FullPath);
 
             // No shadow copy?
             if (!settings.ShadowCopy)
             {
-                builder.AppendQuoted("/noshadow");
+                builder.Append("/noshadow");
             }
 
             // Generate HTML report?
@@ -87,8 +87,8 @@ namespace Cake.Common.Tools.XUnit
                 var assemblyFilename = assemblyPath.GetFilename().AppendExtension(".html");
                 var outputPath = settings.OutputDirectory.MakeAbsolute(_environment).GetFilePath(assemblyFilename);
 
-                builder.AppendQuoted("/html");
-                builder.AppendQuoted(outputPath.FullPath);
+                builder.Append("/html");
+                builder.Append(outputPath.FullPath);
             }
 
             // Generate XML report?
@@ -97,8 +97,8 @@ namespace Cake.Common.Tools.XUnit
                 var assemblyFilename = assemblyPath.GetFilename().AppendExtension(".xml");
                 var outputPath = settings.OutputDirectory.MakeAbsolute(_environment).GetFilePath(assemblyFilename);
 
-                builder.AppendQuoted("/xml");
-                builder.AppendQuoted(outputPath.FullPath);
+                builder.Append("/xml");
+                builder.Append(outputPath.FullPath);
             }
 
             // Silent mode?

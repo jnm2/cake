@@ -115,7 +115,7 @@ namespace Cake.Common.Tools.WiX
                 var fullPath = string.Concat(settings.OutputDirectory.MakeAbsolute(_environment).FullPath, '\\', '\\');
 
                 builder.Append("-o");
-                builder.AppendQuoted(fullPath);
+                builder.Append(fullPath);
             }
 
             // Pedantic
@@ -139,7 +139,7 @@ namespace Cake.Common.Tools.WiX
             // Source files (.wxs)
             foreach (var sourceFile in sourceFiles.Select(file => file.MakeAbsolute(_environment).FullPath))
             {
-                builder.AppendQuoted(sourceFile);
+                builder.Append(sourceFile);
             }
 
             return builder;

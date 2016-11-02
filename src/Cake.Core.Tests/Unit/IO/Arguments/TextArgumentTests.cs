@@ -7,15 +7,16 @@ using Xunit;
 
 namespace Cake.Core.Tests.Unit.IO.Arguments
 {
+    // See also StandardProcessArgumentTests.TextArgumentTests
     public sealed class TextArgumentTests
     {
         public sealed class TheRenderMethod
         {
             [Theory]
-            [InlineData("Hello World", "Hello World")]
-            [InlineData("", "")]
-            [InlineData(" \t ", " \t ")]
-            [InlineData(null, "")]
+            [InlineData("Hello World", "\"Hello World\"")]
+            [InlineData("", "\"\"")]
+            [InlineData(" \t ", "\" \t \"")]
+            [InlineData(null, "\"\"")]
             public void Should_Render_The_Provided_Text(string text, string expected)
             {
                 // Given
@@ -32,10 +33,10 @@ namespace Cake.Core.Tests.Unit.IO.Arguments
         public sealed class TheRenderSafeMethod
         {
             [Theory]
-            [InlineData("Hello World", "Hello World")]
-            [InlineData("", "")]
-            [InlineData(" \t ", " \t ")]
-            [InlineData(null, "")]
+            [InlineData("Hello World", "\"Hello World\"")]
+            [InlineData("", "\"\"")]
+            [InlineData(" \t ", "\" \t \"")]
+            [InlineData(null, "\"\"")]
             public void Should_Render_The_Provided_Text_As_Normal(string text, string expected)
             {
                 // Given

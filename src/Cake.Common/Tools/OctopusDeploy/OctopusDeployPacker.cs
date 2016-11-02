@@ -78,44 +78,44 @@ namespace Cake.Common.Tools.OctopusDeploy
 
             if (settings.OutFolder != null)
             {
-                builder.AppendSwitchQuoted("--outFolder", settings.OutFolder.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("--outFolder", settings.OutFolder.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.BasePath != null)
             {
-                builder.AppendSwitchQuoted("--basePath", settings.BasePath.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("--basePath", settings.BasePath.MakeAbsolute(_environment).FullPath);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Author))
             {
-                builder.AppendSwitchQuoted("--author", settings.Author);
+                builder.AppendSwitch("--author", settings.Author);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Title))
             {
-                builder.AppendSwitchQuoted("--title", settings.Title);
+                builder.AppendSwitch("--title", settings.Title);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Description))
             {
-                builder.AppendSwitchQuoted("--description", settings.Description);
+                builder.AppendSwitch("--description", settings.Description);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.ReleaseNotes))
             {
-                builder.AppendSwitchQuoted("--releaseNotes", settings.ReleaseNotes);
+                builder.AppendSwitch("--releaseNotes", settings.ReleaseNotes);
             }
 
             if (settings.ReleaseNotesFile != null)
             {
-                builder.AppendSwitchQuoted("--releaseNotesFile", settings.ReleaseNotesFile.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("--releaseNotesFile", settings.ReleaseNotesFile.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.Include != null)
             {
                 foreach (var include in settings.Include)
                 {
-                    builder.AppendSwitchQuoted("--include", include);
+                    builder.AppendSwitch("--include", include);
                 }
             }
 

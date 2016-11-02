@@ -64,12 +64,12 @@ namespace Cake.Common.Tools.VSTest
             // Add the assembly to build.
             foreach (var assemblyPath in assemblyPaths)
             {
-                builder.AppendQuoted(assemblyPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(assemblyPath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.SettingsFile != null)
             {
-                builder.AppendSwitchQuoted("/Settings", ":", settings.SettingsFile.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("/Settings", ":", settings.SettingsFile.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.Parallel)
@@ -94,7 +94,7 @@ namespace Cake.Common.Tools.VSTest
 
             if (settings.TestAdapterPath != null)
             {
-                builder.AppendSwitchQuoted("/TestAdapterPath", ":", settings.TestAdapterPath.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("/TestAdapterPath", ":", settings.TestAdapterPath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.PlatformArchitecture != VSTestPlatform.Default)
@@ -109,12 +109,12 @@ namespace Cake.Common.Tools.VSTest
 
             if (settings.TestCaseFilter != null)
             {
-                builder.AppendSwitchQuoted("/TestCaseFilter", ":", settings.TestCaseFilter);
+                builder.AppendSwitch("/TestCaseFilter", ":", settings.TestCaseFilter);
             }
 
             if (settings.Diag != null)
             {
-                builder.AppendSwitchQuoted("/Diag", ":", settings.Diag.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("/Diag", ":", settings.Diag.MakeAbsolute(_environment).FullPath);
             }
 
             if (!string.IsNullOrEmpty(settings.Logger))

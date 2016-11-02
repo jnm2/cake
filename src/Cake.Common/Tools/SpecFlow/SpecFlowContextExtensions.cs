@@ -47,7 +47,7 @@ namespace Cake.Common.Tools.SpecFlow
             builder.Append("mstestexecutionreport");
 
             // Set the project file
-            builder.AppendQuoted(projectFile.MakeAbsolute(environment).FullPath);
+            builder.Append(projectFile.MakeAbsolute(environment).FullPath);
 
             var arguments = context.RenderArguments();
 
@@ -75,7 +75,7 @@ namespace Cake.Common.Tools.SpecFlow
             builder.Append("nunitexecutionreport");
 
             // Set the project file
-            builder.AppendQuoted(projectFile.MakeAbsolute(environment).FullPath);
+            builder.Append(projectFile.MakeAbsolute(environment).FullPath);
 
             var arguments = context.RenderArguments();
 
@@ -123,7 +123,7 @@ namespace Cake.Common.Tools.SpecFlow
             builder.Append("nunitexecutionreport");
 
             // Set the project file
-            builder.AppendQuoted(projectFile.MakeAbsolute(environment).FullPath);
+            builder.Append(projectFile.MakeAbsolute(environment).FullPath);
 
             var arguments = RenderArguments(context);
 

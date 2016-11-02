@@ -44,7 +44,7 @@ namespace Cake.Common.Tools.TextTransform
             if (settings.OutputFile != null)
             {
                 builder.Append("-out");
-                builder.AppendQuoted(settings.OutputFile.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputFile.MakeAbsolute(_environment).FullPath);
             }
 
             if (!string.IsNullOrEmpty(settings.Assembly))
@@ -62,16 +62,16 @@ namespace Cake.Common.Tools.TextTransform
             if (settings.ReferencePath != null)
             {
                 builder.Append("-P");
-                builder.AppendQuoted(settings.ReferencePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.ReferencePath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.IncludeDirectory != null)
             {
                 builder.Append("-I");
-                builder.AppendQuoted(settings.IncludeDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.IncludeDirectory.MakeAbsolute(_environment).FullPath);
             }
 
-            builder.AppendQuoted(sourceFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(sourceFilePath.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

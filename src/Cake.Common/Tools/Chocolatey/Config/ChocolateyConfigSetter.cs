@@ -66,10 +66,10 @@ namespace Cake.Common.Tools.Chocolatey.Config
             builder.Append("set");
 
             builder.Append("--name");
-            builder.AppendQuoted(name);
+            builder.Append(name);
 
             builder.Append("--value");
-            builder.AppendQuoted(value);
+            builder.Append(value);
 
             // Debug
             if (settings.Debug)
@@ -108,14 +108,14 @@ namespace Cake.Common.Tools.Chocolatey.Config
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial

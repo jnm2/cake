@@ -38,7 +38,7 @@ namespace Cake.Common.Tools.OctopusDeploy
             if (value != null)
             {
                 Builder.Append("--" + argumentName);
-                Builder.AppendQuoted(value);
+                Builder.Append(value);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Cake.Common.Tools.OctopusDeploy
             if (value != null)
             {
                 Builder.Append("--" + argumentName);
-                Builder.AppendQuoted(value.MakeAbsolute(Environment).FullPath);
+                Builder.Append(value.MakeAbsolute(Environment).FullPath);
             }
         }
 
@@ -57,7 +57,7 @@ namespace Cake.Common.Tools.OctopusDeploy
             {
                 foreach (var value in values)
                 {
-                    Builder.AppendSwitchQuoted("--" + argumentName, "=", value);
+                    Builder.AppendSwitch("--" + argumentName, "=", value);
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace Cake.Common.Tools.OctopusDeploy
             if (Settings.Password != null)
             {
                 Builder.Append("--pass");
-                Builder.AppendQuotedSecret(Settings.Password);
+                Builder.AppendSecret(Settings.Password);
             }
 
             AppendArgumentIfNotNull("configFile", Settings.ConfigurationFile);

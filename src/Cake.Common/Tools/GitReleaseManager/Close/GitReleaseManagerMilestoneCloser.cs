@@ -83,32 +83,32 @@ namespace Cake.Common.Tools.GitReleaseManager.Close
             builder.Append("close");
 
             builder.Append("-u");
-            builder.AppendQuoted(userName);
+            builder.Append(userName);
 
             builder.Append("-p");
-            builder.AppendQuotedSecret(password);
+            builder.AppendSecret(password);
 
             builder.Append("-o");
-            builder.AppendQuoted(owner);
+            builder.Append(owner);
 
             builder.Append("-r");
-            builder.AppendQuoted(repository);
+            builder.Append(repository);
 
             builder.Append("-m");
-            builder.AppendQuoted(milestone);
+            builder.Append(milestone);
 
             // Target Directory
             if (settings.TargetDirectory != null)
             {
                 builder.Append("-d");
-                builder.AppendQuoted(settings.TargetDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.TargetDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Log File Path
             if (settings.LogFilePath != null)
             {
                 builder.Append("-l");
-                builder.AppendQuoted(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.LogFilePath.MakeAbsolute(_environment).FullPath);
             }
 
             return builder;

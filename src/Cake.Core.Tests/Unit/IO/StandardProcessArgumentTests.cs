@@ -46,11 +46,19 @@ namespace Cake.Core.Tests.Unit.IO
             }
         }
 
-        public sealed class ProcessArgumentBuilderTests : AutoQuotingTestRunner
+        public sealed class ProcessArgumentBuilderAppendTests : AutoQuotingTestRunner
         {
             public override string Run(string rawArgument)
             {
                 return new ProcessArgumentBuilder().Append(rawArgument).Render();
+            }
+        }
+
+        public sealed class ProcessArgumentBuilderPrependTests : AutoQuotingTestRunner
+        {
+            public override string Run(string rawArgument)
+            {
+                return new ProcessArgumentBuilder().Prepend(rawArgument).Render();
             }
         }
 

@@ -59,12 +59,12 @@ namespace Cake.Common.Tools.Chocolatey.Push
             var builder = new ProcessArgumentBuilder();
             builder.Append("push");
 
-            builder.AppendQuoted(packageFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(packageFilePath.MakeAbsolute(_environment).FullPath);
 
             if (settings.Source != null)
             {
                 builder.Append("-s");
-                builder.AppendQuoted(settings.Source);
+                builder.Append(settings.Source);
             }
 
             if (settings.Timeout != null)
@@ -116,14 +116,14 @@ namespace Cake.Common.Tools.Chocolatey.Push
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial

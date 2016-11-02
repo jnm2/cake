@@ -55,7 +55,7 @@ namespace Cake.Common.Tools.DotNetCore.Run
             if (project != null)
             {
                 builder.Append("--project");
-                builder.AppendQuoted(project);
+                builder.Append(project);
             }
 
             // Framework

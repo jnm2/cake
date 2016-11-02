@@ -62,7 +62,7 @@ namespace Cake.Common.Tools.DNU.Pack
             // Specific path?
             if (path != null)
             {
-                builder.AppendQuoted(path);
+                builder.Append(path);
             }
 
             // List of frameworks
@@ -71,7 +71,7 @@ namespace Cake.Common.Tools.DNU.Pack
                 foreach (var framework in settings.Frameworks)
                 {
                     builder.Append("--framework");
-                    builder.AppendQuoted(framework);
+                    builder.Append(framework);
                 }
             }
 
@@ -81,7 +81,7 @@ namespace Cake.Common.Tools.DNU.Pack
                 foreach (var configuration in settings.Configurations)
                 {
                     builder.Append("--configuration");
-                    builder.AppendQuoted(configuration);
+                    builder.Append(configuration);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace Cake.Common.Tools.DNU.Pack
             if (settings.OutputDirectory != null)
             {
                 builder.Append("--out");
-                builder.AppendQuoted(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Quiet?

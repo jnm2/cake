@@ -58,11 +58,11 @@ namespace Cake.Common.Tools.GitReleaseNotes
 
             if (settings.WorkingDirectory != null)
             {
-                builder.AppendQuoted(settings.WorkingDirectory.FullPath);
+                builder.Append(settings.WorkingDirectory.FullPath);
             }
 
             builder.Append("/OutputFile");
-            builder.AppendQuoted(outputFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(outputFile.MakeAbsolute(_environment).FullPath);
 
             if (settings.Verbose)
             {
@@ -97,79 +97,79 @@ namespace Cake.Common.Tools.GitReleaseNotes
             if (!string.IsNullOrWhiteSpace(settings.RepoUserName))
             {
                 builder.Append("/RepoUsername");
-                builder.AppendQuoted(settings.RepoUserName);
+                builder.Append(settings.RepoUserName);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.RepoPassword))
             {
                 builder.Append("/RepoPassword");
-                builder.AppendQuoted(settings.RepoPassword);
+                builder.Append(settings.RepoPassword);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.RepoToken))
             {
                 builder.Append("/RepoToken");
-                builder.AppendQuoted(settings.RepoToken);
+                builder.Append(settings.RepoToken);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.RepoUrl))
             {
                 builder.Append("/RepoUrl");
-                builder.AppendQuoted(settings.RepoUrl);
+                builder.Append(settings.RepoUrl);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.RepoBranch))
             {
                 builder.Append("/RepoBranch");
-                builder.AppendQuoted(settings.RepoBranch);
+                builder.Append(settings.RepoBranch);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerUrl))
             {
                 builder.Append("/IssueTrackerUrl");
-                builder.AppendQuoted(settings.IssueTrackerUrl);
+                builder.Append(settings.IssueTrackerUrl);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerUserName))
             {
                 builder.Append("/IssueTrackerUsername");
-                builder.AppendQuoted(settings.IssueTrackerUserName);
+                builder.Append(settings.IssueTrackerUserName);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerPassword))
             {
                 builder.Append("/IssueTrackerPassword");
-                builder.AppendQuoted(settings.IssueTrackerPassword);
+                builder.Append(settings.IssueTrackerPassword);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerToken))
             {
                 builder.Append("/IssueTrackerToken");
-                builder.AppendQuoted(settings.IssueTrackerToken);
+                builder.Append(settings.IssueTrackerToken);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerProjectId))
             {
                 builder.Append("/IssueTrackerProjectId");
-                builder.AppendQuoted(settings.IssueTrackerProjectId);
+                builder.Append(settings.IssueTrackerProjectId);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.IssueTrackerFilter))
             {
                 builder.Append("/IssueTrackerFilter");
-                builder.AppendQuoted(settings.IssueTrackerFilter);
+                builder.Append(settings.IssueTrackerFilter);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Categories))
             {
                 builder.Append("/Categories");
-                builder.AppendQuoted(settings.Categories);
+                builder.Append(settings.Categories);
             }
 
             if (!string.IsNullOrWhiteSpace(settings.Version))
             {
                 builder.Append("/Version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             if (settings.AllLabels)

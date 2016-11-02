@@ -78,7 +78,7 @@ namespace Cake.Common.Tools.XUnit
             // Add the assemblies to test.
             foreach (var assembly in assemblyPaths)
             {
-                builder.AppendQuoted(assembly.MakeAbsolute(_environment).FullPath);
+                builder.Append(assembly.MakeAbsolute(_environment).FullPath);
             }
 
             // No shadow copy?
@@ -101,7 +101,7 @@ namespace Cake.Common.Tools.XUnit
                 var outputPath = settings.OutputDirectory.MakeAbsolute(_environment).GetFilePath(assemblyFilename);
 
                 builder.Append("-nunit");
-                builder.AppendQuoted(outputPath.FullPath);
+                builder.Append(outputPath.FullPath);
             }
 
             // Generate HTML report?
@@ -112,7 +112,7 @@ namespace Cake.Common.Tools.XUnit
                 var outputPath = settings.OutputDirectory.MakeAbsolute(_environment).GetFilePath(assemblyFilename);
 
                 builder.Append("-html");
-                builder.AppendQuoted(outputPath.FullPath);
+                builder.Append(outputPath.FullPath);
             }
 
             // Generate XML report?
@@ -123,7 +123,7 @@ namespace Cake.Common.Tools.XUnit
                 var outputPath = settings.OutputDirectory.MakeAbsolute(_environment).GetFilePath(assemblyFilename);
 
                 builder.Append(settings.XmlReportV1 ? "-xmlv1" : "-xml");
-                builder.AppendQuoted(outputPath.FullPath);
+                builder.Append(outputPath.FullPath);
             }
 
             // parallelize test execution?

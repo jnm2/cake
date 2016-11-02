@@ -80,7 +80,7 @@ namespace Cake.Common.Tools.Chocolatey.Install
             var builder = new ProcessArgumentBuilder();
 
             builder.Append("install");
-            builder.AppendQuoted(packageId);
+            builder.Append(packageId);
 
             // Debug
             if (settings.Debug)
@@ -125,14 +125,14 @@ namespace Cake.Common.Tools.Chocolatey.Install
             if (settings.ExecutionTimeout != 0)
             {
                 builder.Append("--execution-timeout");
-                builder.AppendQuoted(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
+                builder.Append(settings.ExecutionTimeout.ToString(CultureInfo.InvariantCulture));
             }
 
             // Cache Location
             if (!string.IsNullOrWhiteSpace(settings.CacheLocation))
             {
                 builder.Append("-c");
-                builder.AppendQuoted(settings.CacheLocation);
+                builder.Append(settings.CacheLocation);
             }
 
             // Allow Unofficial
@@ -145,14 +145,14 @@ namespace Cake.Common.Tools.Chocolatey.Install
             if (!string.IsNullOrWhiteSpace(settings.Source))
             {
                 builder.Append("-s");
-                builder.AppendQuoted(settings.Source);
+                builder.Append(settings.Source);
             }
 
             // Version
             if (settings.Version != null)
             {
                 builder.Append("--version");
-                builder.AppendQuoted(settings.Version);
+                builder.Append(settings.Version);
             }
 
             // Prerelease
@@ -171,7 +171,7 @@ namespace Cake.Common.Tools.Chocolatey.Install
             if (!string.IsNullOrWhiteSpace(settings.InstallArguments))
             {
                 builder.Append("--ia");
-                builder.AppendQuoted(settings.InstallArguments);
+                builder.Append(settings.InstallArguments);
             }
 
             // OverrideArguments
@@ -190,7 +190,7 @@ namespace Cake.Common.Tools.Chocolatey.Install
             if (!string.IsNullOrWhiteSpace(settings.PackageParameters))
             {
                 builder.Append("--params");
-                builder.AppendQuoted(settings.PackageParameters);
+                builder.Append(settings.PackageParameters);
             }
 
             // Allow Downgrade
@@ -227,14 +227,14 @@ namespace Cake.Common.Tools.Chocolatey.Install
             if (!string.IsNullOrWhiteSpace(settings.User))
             {
                 builder.Append("-u");
-                builder.AppendQuoted(settings.User);
+                builder.Append(settings.User);
             }
 
             // Password
             if (!string.IsNullOrWhiteSpace(settings.Password))
             {
                 builder.Append("-p");
-                builder.AppendQuoted(settings.Password);
+                builder.Append(settings.Password);
             }
 
             // Ignore Checksums

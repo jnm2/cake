@@ -62,7 +62,7 @@ namespace Cake.Common.Tools.SpecFlow.StepDefinitionReport
             builder.Append("stepdefinitionreport");
 
             // Set the project file
-            builder.AppendQuoted(projectFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(projectFile.MakeAbsolute(_environment).FullPath);
 
             // Set the bin folder.
             if (settings.BinFolder != null)

@@ -121,7 +121,7 @@ namespace Cake.Common.Tools.InspectCode
         private ProcessArgumentBuilder GetConfigArgument(FilePath configFile)
         {
             var builder = new ProcessArgumentBuilder();
-            builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/config={0}",
+            builder.Append(string.Format(CultureInfo.InvariantCulture, "/config={0}",
                 configFile.MakeAbsolute(_environment).FullPath));
 
             return builder;
@@ -133,7 +133,7 @@ namespace Cake.Common.Tools.InspectCode
 
             if (settings.OutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/output:{0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/output:{0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.SolutionWideAnalysis && settings.NoSolutionWideAnalysis)
@@ -154,25 +154,25 @@ namespace Cake.Common.Tools.InspectCode
 
             if (settings.ProjectFilter != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/project={0}", settings.ProjectFilter));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/project={0}", settings.ProjectFilter));
             }
 
             if (settings.MsBuildProperties != null)
             {
                 foreach (var property in settings.MsBuildProperties)
                 {
-                    builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/properties:{0}={1}", property.Key, property.Value));
+                    builder.Append(string.Format(CultureInfo.InvariantCulture, "/properties:{0}={1}", property.Key, property.Value));
                 }
             }
 
             if (settings.Extensions != null && settings.Extensions.Any())
             {
-                builder.AppendQuoted("/extensions=" + string.Join(";", settings.Extensions));
+                builder.Append("/extensions=" + string.Join(";", settings.Extensions));
             }
 
             if (settings.CachesHome != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/caches-home={0}", settings.CachesHome.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/caches-home={0}", settings.CachesHome.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.Debug)
@@ -187,15 +187,15 @@ namespace Cake.Common.Tools.InspectCode
 
             if (settings.DisabledSettingsLayers != null && settings.DisabledSettingsLayers.Any())
             {
-                builder.AppendQuoted("/dsl=" + string.Join(";", settings.DisabledSettingsLayers));
+                builder.Append("/dsl=" + string.Join(";", settings.DisabledSettingsLayers));
             }
 
             if (settings.Profile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/profile={0}", settings.Profile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/profile={0}", settings.Profile.MakeAbsolute(_environment).FullPath));
             }
 
-            builder.AppendQuoted(solution.MakeAbsolute(_environment).FullPath);
+            builder.Append(solution.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

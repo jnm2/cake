@@ -85,7 +85,7 @@ namespace Cake.Common.Tools.DupFinder
         private ProcessArgumentBuilder GetConfigArgument(FilePath configFile)
         {
             var builder = new ProcessArgumentBuilder();
-            builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/config={0}",
+            builder.Append(string.Format(CultureInfo.InvariantCulture, "/config={0}",
                 configFile.MakeAbsolute(_environment).FullPath));
 
             return builder;
@@ -134,26 +134,26 @@ namespace Cake.Common.Tools.DupFinder
                 settings.ExcludeFilesByStartingCommentSubstring.Any())
             {
                 var joined = string.Join(";", settings.ExcludeFilesByStartingCommentSubstring);
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/exclude-by-comment={0}", joined));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/exclude-by-comment={0}", joined));
             }
 
             if (settings.ExcludeCodeRegionsByNameSubstring != null && settings.ExcludeCodeRegionsByNameSubstring.Any())
             {
                 var joined = string.Join(";", settings.ExcludeCodeRegionsByNameSubstring);
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/exclude-code-regions={0}", joined));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/exclude-code-regions={0}", joined));
             }
 
             if (settings.ExcludePattern != null && settings.ExcludePattern.Any())
             {
                 var joined = string.Join(";", settings.ExcludePattern);
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/exclude={0}", joined));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/exclude={0}", joined));
             }
 
             if (settings.MsBuildProperties != null)
             {
                 foreach (var property in settings.MsBuildProperties)
                 {
-                    builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/properties:{0}={1}", property.Key,
+                    builder.Append(string.Format(CultureInfo.InvariantCulture, "/properties:{0}={1}", property.Key,
                         property.Value));
                 }
             }
@@ -165,13 +165,13 @@ namespace Cake.Common.Tools.DupFinder
 
             if (settings.OutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/output={0}",
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/output={0}",
                     settings.OutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.CachesHome != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "/caches-home={0}",
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "/caches-home={0}",
                     settings.CachesHome.MakeAbsolute(_environment).FullPath));
             }
 
@@ -187,7 +187,7 @@ namespace Cake.Common.Tools.DupFinder
 
             foreach (var file in files)
             {
-                builder.AppendQuoted(file.MakeAbsolute(_environment).FullPath);
+                builder.Append(file.MakeAbsolute(_environment).FullPath);
             }
 
             return builder;

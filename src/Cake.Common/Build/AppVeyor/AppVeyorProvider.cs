@@ -181,7 +181,7 @@ namespace Cake.Common.Build.AppVeyor
             // Build the arguments.
             var arguments = new ProcessArgumentBuilder();
             arguments.Append("PushArtifact");
-            arguments.AppendQuoted(path.FullPath);
+            arguments.Append(path.FullPath);
             arguments.Append("-Type");
             arguments.Append(settings.ArtifactType.ToString());
             if (!string.IsNullOrEmpty(settings.DeploymentName))
@@ -191,7 +191,7 @@ namespace Cake.Common.Build.AppVeyor
                     throw new CakeException("The deployment name can not contain spaces");
                 }
                 arguments.Append("-DeploymentName");
-                arguments.AppendQuoted(settings.DeploymentName);
+                arguments.Append(settings.DeploymentName);
             }
 
             StartAppVeyor(arguments);
@@ -302,7 +302,7 @@ namespace Cake.Common.Build.AppVeyor
             var arguments = new ProcessArgumentBuilder();
             arguments.Append("UpdateBuild");
             arguments.Append("-Version");
-            arguments.AppendQuoted(version);
+            arguments.Append(version);
 
             StartAppVeyor(arguments);
         }
@@ -390,14 +390,14 @@ namespace Cake.Common.Build.AppVeyor
             // Build the arguments.
             var arguments = new ProcessArgumentBuilder();
             arguments.Append("AddMessage");
-            arguments.AppendQuoted(message);
+            arguments.Append(message);
             arguments.Append("-Category");
-            arguments.AppendQuoted(category.ToString());
+            arguments.Append(category.ToString());
 
             if (!string.IsNullOrWhiteSpace(details))
             {
                 arguments.Append("-Details");
-                arguments.AppendQuoted(details);
+                arguments.Append(details);
             }
 
             StartAppVeyor(arguments);

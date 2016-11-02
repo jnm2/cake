@@ -133,7 +133,7 @@ namespace Cake.Common.Tools.WiX.Heat
             // Object files
             foreach (var objectFile in objectFiles.Select(file => file.MakeAbsolute(_environment).FullPath))
             {
-                builder.AppendQuoted(objectFile);
+                builder.Append(objectFile);
             }
 
             var args = GetArguments(outputFile, settings);
@@ -148,7 +148,7 @@ namespace Cake.Common.Tools.WiX.Heat
             var builder = new ProcessArgumentBuilder();
 
             builder.Append(GetHarvestType(harvestType));
-            builder.AppendQuoted(directoryPath.MakeAbsolute(_environment).FullPath);
+            builder.Append(directoryPath.MakeAbsolute(_environment).FullPath);
 
             var args = GetArguments(outputFile, settings);
 
@@ -163,7 +163,7 @@ namespace Cake.Common.Tools.WiX.Heat
 
             builder.Append(GetHarvestType(harvestType));
 
-            builder.AppendQuoted(harvestTarget);
+            builder.Append(harvestTarget);
 
             var args = GetArguments(outputFile, settings);
 
@@ -360,7 +360,7 @@ namespace Cake.Common.Tools.WiX.Heat
             if (settings.Transform != null)
             {
                 builder.Append("-t");
-                builder.AppendQuoted(settings.Transform);
+                builder.Append(settings.Transform);
             }
 
             if (settings.Indent != null)
@@ -390,7 +390,7 @@ namespace Cake.Common.Tools.WiX.Heat
 
             // Output file
             builder.Append("-out");
-            builder.AppendQuoted(outputFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(outputFile.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

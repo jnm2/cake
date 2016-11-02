@@ -57,20 +57,20 @@ namespace Cake.Common.Tools.NuGet.Update
             var builder = new ProcessArgumentBuilder();
 
             builder.Append("update");
-            builder.AppendQuoted(targetFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(targetFile.MakeAbsolute(_environment).FullPath);
 
             // Packages?
             if (settings.Id != null && settings.Id.Count > 0)
             {
                 builder.Append("-Id");
-                builder.AppendQuoted(string.Join(";", settings.Id));
+                builder.Append(string.Join(";", settings.Id));
             }
 
             // List of package sources
             if (settings.Source != null && settings.Source.Count > 0)
             {
                 builder.Append("-Source");
-                builder.AppendQuoted(string.Join(";", settings.Source));
+                builder.Append(string.Join(";", settings.Source));
             }
 
             // Verbosity?

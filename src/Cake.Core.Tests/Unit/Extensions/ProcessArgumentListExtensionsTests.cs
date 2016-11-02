@@ -62,7 +62,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             public void ShouldAppendTextArgument()
             {
                 var result = new ProcessArgumentBuilder()
-                    .AppendQuoted("string arg")
+                    .Append("string arg")
                     .RenderSafe();
 
                 Assert.Equal("\"string arg\"", result);
@@ -71,9 +71,9 @@ namespace Cake.Core.Tests.Unit.Extensions
             [Fact]
             public void ShouldAppendProcessArgument()
             {
-                var result = new ProcessArgumentBuilder()
-                    .AppendQuoted(new TextArgument("text arg"))
-                    .RenderSafe();
+                var result = new ProcessArgumentBuilder();
+                result.Append(new TextArgument("text arg"));
+                result.RenderSafe();
 
                 Assert.Equal("\"text arg\"", result);
             }
@@ -82,7 +82,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             public void ShouldAppendFormattedTextArgument()
             {
                 var result = new ProcessArgumentBuilder()
-                    .AppendQuoted("/arg1:{0}", "Value1")
+                    .Append("/arg1:{0}", "Value1")
                     .RenderSafe();
 
                 Assert.Equal("\"/arg1:Value1\"", result);
@@ -96,7 +96,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             {
                 var result = new ProcessArgumentBuilder()
                     .Append("last")
-                    .PrependQuoted("string arg")
+                    .Prepend("string arg")
                     .RenderSafe();
 
                 Assert.Equal("\"string arg\" last", result);
@@ -105,10 +105,10 @@ namespace Cake.Core.Tests.Unit.Extensions
             [Fact]
             public void ShouldPrependProcessArgument()
             {
-                var result = new ProcessArgumentBuilder()
-                    .Append("last")
-                    .PrependQuoted(new TextArgument("text arg"))
-                    .RenderSafe();
+                var result = new ProcessArgumentBuilder();
+                result.Append("last");
+                result.Prepend(new TextArgument("text arg"));
+                result.RenderSafe();
 
                 Assert.Equal("\"text arg\" last", result);
             }
@@ -118,7 +118,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             {
                 var result = new ProcessArgumentBuilder()
                     .Append("last")
-                    .PrependQuoted("/arg1:{0}", "Value1")
+                    .Prepend("/arg1:{0}", "Value1")
                     .RenderSafe();
 
                 Assert.Equal("\"/arg1:Value1\" last", result);
@@ -200,7 +200,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             public void ShouldAppendTextArgument()
             {
                 var result = new ProcessArgumentBuilder()
-                    .AppendQuotedSecret("string arg")
+                    .AppendSecret("string arg")
                     .Render();
 
                 Assert.Equal("\"string arg\"", result);
@@ -210,7 +210,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             public void ShouldAppendProcessArgument()
             {
                 var result = new ProcessArgumentBuilder()
-                    .AppendQuotedSecret(new TextArgument("text arg"))
+                    .AppendSecret(new TextArgument("text arg"))
                     .Render();
 
                 Assert.Equal("\"text arg\"", result);
@@ -220,7 +220,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             public void ShouldAppendFormattedTextArgument()
             {
                 var result = new ProcessArgumentBuilder()
-                    .AppendQuotedSecret("/arg1:{0} /arg2:{1}", "Value1", "Value2")
+                    .AppendSecret("/arg1:{0} /arg2:{1}", "Value1", "Value2")
                     .Render();
 
                 Assert.Equal("\"/arg1:Value1 /arg2:Value2\"", result);
@@ -234,7 +234,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             {
                 var result = new ProcessArgumentBuilder()
                     .Append("last")
-                    .PrependQuotedSecret("string arg")
+                    .PrependSecret("string arg")
                     .Render();
 
                 Assert.Equal("\"string arg\" last", result);
@@ -245,7 +245,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             {
                 var result = new ProcessArgumentBuilder()
                     .Append("last")
-                    .PrependQuotedSecret(new TextArgument("text arg"))
+                    .PrependSecret(new TextArgument("text arg"))
                     .Render();
 
                 Assert.Equal("\"text arg\" last", result);
@@ -256,7 +256,7 @@ namespace Cake.Core.Tests.Unit.Extensions
             {
                 var result = new ProcessArgumentBuilder()
                     .Append("last")
-                    .PrependQuotedSecret("/arg1:{0} /arg2:{1}", "Value1", "Value2")
+                    .PrependSecret("/arg1:{0} /arg2:{1}", "Value1", "Value2")
                     .Render();
 
                 Assert.Equal("\"/arg1:Value1 /arg2:Value2\" last", result);

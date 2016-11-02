@@ -113,7 +113,7 @@ namespace Cake.Common.Tools.InnoSetup
                     builder.Append(string.IsNullOrEmpty(item.Value)
                         ? string.Format(CultureInfo.InvariantCulture, "/D{0}", item.Key)
                         : string.Format(CultureInfo.InvariantCulture, "/D{0}={1}", item.Key,
-                            new QuotedArgument(new TextArgument(item.Value))));
+                            new TextArgument(item.Value)));
                 }
             }
 
@@ -126,13 +126,13 @@ namespace Cake.Common.Tools.InnoSetup
             // Output directory
             if (settings.OutputDirectory != null)
             {
-                builder.AppendSwitchQuoted("/O", string.Empty, settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.AppendSwitch("/O", string.Empty, settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Output base file name
             if (!string.IsNullOrEmpty(settings.OutputBaseFilename))
             {
-                builder.AppendSwitchQuoted("/F", string.Empty, settings.OutputBaseFilename);
+                builder.AppendSwitch("/F", string.Empty, settings.OutputBaseFilename);
             }
 
             // Quiet mode
@@ -151,7 +151,7 @@ namespace Cake.Common.Tools.InnoSetup
             }
 
             // Quoted Script file
-            builder.AppendQuoted(scriptFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(scriptFile.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

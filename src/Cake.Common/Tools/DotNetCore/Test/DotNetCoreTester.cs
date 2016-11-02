@@ -56,21 +56,21 @@ namespace Cake.Common.Tools.DotNetCore.Test
             // Specific path?
             if (project != null)
             {
-                builder.AppendQuoted(project);
+                builder.Append(project);
             }
 
             // Output directory
             if (settings.OutputDirectory != null)
             {
                 builder.Append("--output");
-                builder.AppendQuoted(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.OutputDirectory.MakeAbsolute(_environment).FullPath);
             }
 
             // Temporary output directory
             if (settings.BuildBasePath != null)
             {
                 builder.Append("--build-base-path");
-                builder.AppendQuoted(settings.BuildBasePath.MakeAbsolute(_environment).FullPath);
+                builder.Append(settings.BuildBasePath.MakeAbsolute(_environment).FullPath);
             }
 
             // Runtime

@@ -82,7 +82,7 @@ namespace Cake.Common.Tools.XBuild
             }
 
             // Add the solution as the last parameter.
-            builder.AppendQuoted(solution.MakeAbsolute(_environment).FullPath);
+            builder.Append(solution.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

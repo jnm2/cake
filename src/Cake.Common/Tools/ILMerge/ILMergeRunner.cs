@@ -103,11 +103,11 @@ namespace Cake.Common.Tools.ILMerge
             }
 
             // Add primary assembly.
-            builder.AppendQuoted(primaryAssemblyFilePath.MakeAbsolute(_environment).FullPath);
+            builder.Append(primaryAssemblyFilePath.MakeAbsolute(_environment).FullPath);
 
             foreach (var file in assemblyPaths)
             {
-                builder.AppendQuoted(file.MakeAbsolute(_environment).FullPath);
+                builder.Append(file.MakeAbsolute(_environment).FullPath);
             }
 
             // Create the process start info.

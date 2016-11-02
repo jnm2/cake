@@ -84,11 +84,11 @@ namespace Cake.Common.Tools.ReportUnit
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.AppendQuoted(inputFolder.MakeAbsolute(_environment).FullPath);
+            builder.Append(inputFolder.MakeAbsolute(_environment).FullPath);
 
             if (outputFolder != null)
             {
-                builder.AppendQuoted(outputFolder.MakeAbsolute(_environment).FullPath);
+                builder.Append(outputFolder.MakeAbsolute(_environment).FullPath);
             }
 
             return builder;
@@ -98,9 +98,9 @@ namespace Cake.Common.Tools.ReportUnit
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.AppendQuoted(inputFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(inputFile.MakeAbsolute(_environment).FullPath);
 
-            builder.AppendQuoted(outputFile.MakeAbsolute(_environment).FullPath);
+            builder.Append(outputFile.MakeAbsolute(_environment).FullPath);
 
             return builder;
         }

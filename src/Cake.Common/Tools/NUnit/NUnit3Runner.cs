@@ -61,7 +61,7 @@ namespace Cake.Common.Tools.NUnit
             // Add the assemblies to build.
             foreach (var assemblyPath in assemblyPaths)
             {
-                builder.AppendQuoted(assemblyPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(assemblyPath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.Test != null)
@@ -71,7 +71,7 @@ namespace Cake.Common.Tools.NUnit
 
             if (settings.TestList != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "--testlist={0}", settings.TestList.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "--testlist={0}", settings.TestList.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.Where != null)
@@ -101,17 +101,17 @@ namespace Cake.Common.Tools.NUnit
 
             if (settings.Work != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "--work={0}", settings.Work.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "--work={0}", settings.Work.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.OutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "--out={0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "--out={0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.ErrorOutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "--err={0}", settings.ErrorOutputFile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "--err={0}", settings.ErrorOutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.Full)
@@ -136,11 +136,11 @@ namespace Cake.Common.Tools.NUnit
                 {
                     results.AppendFormat(";transform={0}", settings.ResultTransform.MakeAbsolute(_environment).FullPath);
                 }
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "--result={0}", results));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "--result={0}", results));
             }
             else if (settings.NoResults)
             {
-                builder.AppendQuoted("--noresult");
+                builder.Append("--noresult");
             }
 
             if (settings.Labels != NUnit3Labels.Off)
@@ -170,12 +170,12 @@ namespace Cake.Common.Tools.NUnit
 
             if (settings.Configuration != null)
             {
-                builder.AppendQuoted("--config=" + settings.Configuration);
+                builder.Append("--config=" + settings.Configuration);
             }
 
             if (settings.Framework != null)
             {
-                builder.AppendQuoted("--framework=" + settings.Framework);
+                builder.Append("--framework=" + settings.Framework);
             }
 
             if (settings.X86)

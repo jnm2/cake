@@ -60,22 +60,22 @@ namespace Cake.Common.Tools.NUnit
             // Add the assemblies to build.
             foreach (var assemblyPath in assemblyPaths)
             {
-                builder.AppendQuoted(assemblyPath.MakeAbsolute(_environment).FullPath);
+                builder.Append(assemblyPath.MakeAbsolute(_environment).FullPath);
             }
 
             if (settings.Framework != null)
             {
-                builder.AppendQuoted("-framework:" + settings.Framework);
+                builder.Append("-framework:" + settings.Framework);
             }
 
             if (settings.Include != null)
             {
-                builder.AppendQuoted("-include:" + settings.Include);
+                builder.Append("-include:" + settings.Include);
             }
 
             if (settings.Exclude != null)
             {
-                builder.AppendQuoted("-exclude:" + settings.Exclude);
+                builder.Append("-exclude:" + settings.Exclude);
             }
 
             if (settings.Timeout.HasValue)
@@ -111,12 +111,12 @@ namespace Cake.Common.Tools.NUnit
 
             if (settings.OutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "-output:{0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "-output:{0}", settings.OutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.ErrorOutputFile != null)
             {
-                builder.AppendQuoted(string.Format(CultureInfo.InvariantCulture, "-err:{0}", settings.ErrorOutputFile.MakeAbsolute(_environment).FullPath));
+                builder.Append(string.Format(CultureInfo.InvariantCulture, "-err:{0}", settings.ErrorOutputFile.MakeAbsolute(_environment).FullPath));
             }
 
             if (settings.ResultsFile != null && settings.NoResults)
@@ -127,30 +127,30 @@ namespace Cake.Common.Tools.NUnit
 
             if (settings.ResultsFile != null)
             {
-                builder.AppendQuoted(
+                builder.Append(
                     string.Format(
                         CultureInfo.InvariantCulture,
                         "-result:{0}", settings.ResultsFile.MakeAbsolute(_environment).FullPath));
             }
             else if (settings.NoResults)
             {
-                builder.AppendQuoted("-noresult");
+                builder.Append("-noresult");
             }
 
             // don't include the default value
             if (settings.Process != NUnitProcessOption.Single)
             {
-                builder.AppendQuoted("-process:" + settings.Process);
+                builder.Append("-process:" + settings.Process);
             }
 
             if (settings.UseSingleThreadedApartment)
             {
-                builder.AppendQuoted("-apartment:STA");
+                builder.Append("-apartment:STA");
             }
 
             if (settings.AppDomainUsage != NUnitAppDomainUsage.Default)
             {
-                builder.AppendQuoted("-domain:" + settings.AppDomainUsage);
+                builder.Append("-domain:" + settings.AppDomainUsage);
             }
 
             return builder;
