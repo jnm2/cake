@@ -85,7 +85,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\"", result.Args);
+                Assert.Equal("build ./src/*", result.Args);
             }
 
             [Fact]
@@ -103,7 +103,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --runtime runtime1 --framework net451 --configuration Release --version-suffix rc1", result.Args);
+                Assert.Equal("build ./src/* --runtime runtime1 --framework net451 --configuration Release --version-suffix rc1", result.Args);
             }
 
             [Fact]
@@ -118,11 +118,11 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --output \"/Working/artifacts\"", result.Args);
+                Assert.Equal("build ./src/* --output /Working/artifacts", result.Args);
             }
 
             [Theory]
-            [InlineData("./src/*", "build \"./src/*\"")]
+            [InlineData("./src/*", "build ./src/*")]
             [InlineData("./src/cake build/", "build \"./src/cake build/\"")]
             [InlineData("./src/cake build/cake cli", "build \"./src/cake build/cake cli\"")]
             public void Should_Quote_Project_Path(string text, string expected)
@@ -153,7 +153,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --build-base-path \"/Working/temp\" --build-profile --no-incremental --no-dependencies", result.Args);
+                Assert.Equal("build ./src/* --build-base-path \"/Working/temp\" --build-profile --no-incremental --no-dependencies", result.Args);
             }
         }
     }

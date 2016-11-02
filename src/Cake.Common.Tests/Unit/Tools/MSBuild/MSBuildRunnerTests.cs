@@ -662,7 +662,7 @@ namespace Cake.Common.Tests.Unit.Tools.MSBuild
             }
 
             [Theory]
-            [InlineData("Release", "/v:normal /p:Configuration=\"Release\" /target:Build \"/Working/src/Solution.sln\"")]
+            [InlineData("Release", "/v:normal /p:Configuration=Release /target:Build \"/Working/src/Solution.sln\"")]
             [InlineData("Custom Spaced", "/v:normal /p:Configuration=\"Custom Spaced\" /target:Build \"/Working/src/Solution.sln\"")]
             public void Should_Append_Configuration_As_Property_To_Process_Arguments(string configuration, string expected)
             {

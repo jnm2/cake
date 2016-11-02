@@ -137,7 +137,7 @@ namespace Cake.Common.Tools.Chocolatey.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("source add");
+            builder.Append("source").Append("add");
 
             AddCommonParameters(name, source, settings, builder);
 
@@ -162,7 +162,7 @@ namespace Cake.Common.Tools.Chocolatey.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("source remove");
+            builder.Append("source").Append("remove");
 
             AddCommonParameters(name, string.Empty, settings, builder);
 
@@ -173,7 +173,7 @@ namespace Cake.Common.Tools.Chocolatey.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("source enable");
+            builder.Append("source").Append("enable");
 
             AddCommonParameters(name, string.Empty, settings, builder);
 
@@ -184,7 +184,7 @@ namespace Cake.Common.Tools.Chocolatey.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("source disable");
+            builder.Append("source").Append("disable");
 
             AddCommonParameters(name, string.Empty, settings, builder);
 

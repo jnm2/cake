@@ -47,7 +47,7 @@ namespace Cake.Common.Tools.DotCover
             var builder = new ProcessArgumentBuilder();
 
             // The target application to call.
-            builder.AppendSwitch("/TargetExecutable", "=", targetContext.FilePath.FullPath.Quote());
+            builder.AppendSwitch("/TargetExecutable", "=", targetContext.FilePath.FullPath);
 
             // The arguments to the target application.
             if (targetContext.Settings != null && targetContext.Settings.Arguments != null)
@@ -56,7 +56,7 @@ namespace Cake.Common.Tools.DotCover
                 if (!string.IsNullOrWhiteSpace(arguments))
                 {
                     arguments = arguments.Replace("\"", "\\\"");
-                    builder.AppendSwitch("/TargetArguments", "=", arguments.Quote());
+                    builder.AppendSwitch("/TargetArguments", "=", arguments);
                 }
             }
 
@@ -75,28 +75,28 @@ namespace Cake.Common.Tools.DotCover
             // TargetWorkingDir
             if (settings.TargetWorkingDir != null)
             {
-                builder.AppendSwitch("/TargetWorkingDir", "=", settings.TargetWorkingDir.MakeAbsolute(_environment).FullPath.Quote());
+                builder.AppendSwitch("/TargetWorkingDir", "=", settings.TargetWorkingDir.MakeAbsolute(_environment).FullPath);
             }
 
             // Scope
             if (settings.Scope.Count > 0)
             {
                 var scope = string.Join(";", settings.Scope);
-                builder.AppendSwitch("/Scope", "=", scope.Quote());
+                builder.AppendSwitch("/Scope", "=", scope);
             }
 
             // Filters
             if (settings.Filters.Count > 0)
             {
                 var filters = string.Join(";", settings.Filters);
-                builder.AppendSwitch("/Filters", "=", filters.Quote());
+                builder.AppendSwitch("/Filters", "=", filters);
             }
 
             // Filters
             if (settings.AttributeFilters.Count > 0)
             {
                 var attributeFilters = string.Join(";", settings.AttributeFilters);
-                builder.AppendSwitch("/AttributeFilters", "=", attributeFilters.Quote());
+                builder.AppendSwitch("/AttributeFilters", "=", attributeFilters);
             }
 
             // DisableDefaultFilters

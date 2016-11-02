@@ -139,12 +139,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -y", result.Args);
+                Assert.Equal("install Cake -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -d -y")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -d -y")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -159,8 +159,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -v -y")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -v -y")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -175,8 +175,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" --acceptLicense -y")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake --acceptLicense -y")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_AcceptLicense_Flag_To_Arguments_If_Set(bool acceptLicense, string expected)
             {
                 // Given
@@ -191,8 +191,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -f")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -f")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -207,8 +207,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --noop")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --noop")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -223,8 +223,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -r")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -r")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -239,8 +239,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(5, "install \"Cake\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "install \"Cake\" -y")]
+            [InlineData(5, "install Cake -y --execution-timeout 5")]
+            [InlineData(0, "install Cake -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -255,8 +255,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "install \"Cake\" -y -c \"c:\\temp\"")]
-            [InlineData("", "install \"Cake\" -y")]
+            [InlineData(@"c:\temp", "install Cake -y -c c:\\temp")]
+            [InlineData("", "install Cake -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -271,8 +271,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --allowunofficial")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --allowunofficial")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given
@@ -297,7 +297,7 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -y -s \"A\"", result.Args);
+                Assert.Equal("install Cake -y -s A", result.Args);
             }
 
             [Fact]
@@ -311,12 +311,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -y --version \"1.0.0\"", result.Args);
+                Assert.Equal("install Cake -y --version 1.0.0", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --pre")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --pre")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Prerelease_Flag_To_Arguments_If_Set(bool prerelease, string expected)
             {
                 // Given
@@ -331,8 +331,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --x86")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --x86")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_Forcex86_Flag_To_Arguments_If_Set(bool forcex86, string expected)
             {
                 // Given
@@ -347,8 +347,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData("args1", "install \"Cake\" -y --ia \"args1\"")]
-            [InlineData("", "install \"Cake\" -y")]
+            [InlineData("args1", "install Cake -y --ia args1")]
+            [InlineData("", "install Cake -y")]
             public void Should_Add_InstallArguments_To_Arguments_If_Set(string installArgs, string expected)
             {
                 // Given
@@ -363,8 +363,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -o")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -o")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_OverrideArguments_Flag_To_Arguments_If_Set(bool overrideArguments, string expected)
             {
                 // Given
@@ -379,8 +379,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --notSilent")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --notSilent")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_NotSilent_Flag_To_Arguments_If_Set(bool notSilent, string expected)
             {
                 // Given
@@ -395,8 +395,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData("param1", "install \"Cake\" -y --params \"param1\"")]
-            [InlineData("", "install \"Cake\" -y")]
+            [InlineData("param1", "install Cake -y --params param1")]
+            [InlineData("", "install Cake -y")]
             public void Should_Add_PackageParameters_To_Arguments_If_Set(string packageParameters, string expected)
             {
                 // Given
@@ -411,8 +411,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --allowdowngrade")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --allowdowngrade")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_AllowDowngrade_Flag_To_Arguments_If_Set(bool allowDowngrade, string expected)
             {
                 // Given
@@ -427,8 +427,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -m")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -m")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_SideBySide_Flag_To_Arguments_If_Set(bool sideBySide, string expected)
             {
                 // Given
@@ -443,8 +443,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -i")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -i")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_IgnoreDependencies_Flag_To_Arguments_If_Set(bool ignoreDependencies, string expected)
             {
                 // Given
@@ -459,8 +459,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -x")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -x")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_ForceDependencies_Flag_To_Arguments_If_Set(bool forceDependencies, string expected)
             {
                 // Given
@@ -475,8 +475,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y -n")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y -n")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_SkipPowerShell_Flag_To_Arguments_If_Set(bool skipPowerShell, string expected)
             {
                 // Given
@@ -491,8 +491,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData("user1", "install \"Cake\" -y -u \"user1\"")]
-            [InlineData("", "install \"Cake\" -y")]
+            [InlineData("user1", "install Cake -y -u user1")]
+            [InlineData("", "install Cake -y")]
             public void Should_Add_User_To_Arguments_If_Set(string user, string expected)
             {
                 // Given
@@ -507,8 +507,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData("password1", "install \"Cake\" -y -p \"password1\"")]
-            [InlineData("", "install \"Cake\" -y")]
+            [InlineData("password1", "install Cake -y -p password1")]
+            [InlineData("", "install Cake -y")]
             public void Should_Add_Password_To_Arguments_If_Set(string password, string expected)
             {
                 // Given
@@ -523,8 +523,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"Cake\" -y --ignorechecksums")]
-            [InlineData(false, "install \"Cake\" -y")]
+            [InlineData(true, "install Cake -y --ignorechecksums")]
+            [InlineData(false, "install Cake -y")]
             public void Should_Add_IgnoreChecksums_Flag_To_Arguments_If_Set(bool ignoreChecksums, string expected)
             {
                 // Given
@@ -667,12 +667,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"/Working/packages.config\" -y", result.Args);
+                Assert.Equal("install /Working/packages.config -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -d -y")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -d -y")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -687,8 +687,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -v -y")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -v -y")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -703,8 +703,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -y -f")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -y -f")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -719,8 +719,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -y --noop")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -y --noop")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -735,8 +735,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -y -r")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -y -r")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -751,8 +751,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(5, "install \"/Working/packages.config\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "install \"/Working/packages.config\" -y")]
+            [InlineData(5, "install /Working/packages.config -y --execution-timeout 5")]
+            [InlineData(0, "install /Working/packages.config -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -767,8 +767,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "install \"/Working/packages.config\" -y -c \"c:\\temp\"")]
-            [InlineData("", "install \"/Working/packages.config\" -y")]
+            [InlineData(@"c:\temp", "install /Working/packages.config -y -c c:\\temp")]
+            [InlineData("", "install /Working/packages.config -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -783,8 +783,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
             }
 
             [Theory]
-            [InlineData(true, "install \"/Working/packages.config\" -y --allowunofficial")]
-            [InlineData(false, "install \"/Working/packages.config\" -y")]
+            [InlineData(true, "install /Working/packages.config -y --allowunofficial")]
+            [InlineData(false, "install /Working/packages.config -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given
@@ -809,7 +809,7 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"/Working/packages.config\" -y -s \"A\"", result.Args);
+                Assert.Equal("install /Working/packages.config -y -s A", result.Args);
             }
         }
     }

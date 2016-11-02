@@ -125,13 +125,13 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("config set --name \"cacheLocation\" " +
-                             "--value \"c:\\temp\" -y", result.Args);
+                Assert.Equal("config set --name cacheLocation " +
+                             "--value c:\\temp -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -d -y")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -d -y")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -146,8 +146,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -v -y")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -v -y")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -162,8 +162,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y -f")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -y -f")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -178,8 +178,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y --noop")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -y --noop")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -194,8 +194,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y -r")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -y -r")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -210,8 +210,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(5, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(5, "config set --name cacheLocation --value c:\\temp -y --execution-timeout 5")]
+            [InlineData(0, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -226,8 +226,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "config set --name \"cacheLocation\" --value \"c:\\temp\" -y -c \"c:\\temp\"")]
-            [InlineData("", "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(@"c:\temp", "config set --name cacheLocation --value c:\\temp -y -c c:\\temp")]
+            [InlineData("", "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -242,8 +242,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Config
             }
 
             [Theory]
-            [InlineData(true, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y --allowunofficial")]
-            [InlineData(false, "config set --name \"cacheLocation\" --value \"c:\\temp\" -y")]
+            [InlineData(true, "config set --name cacheLocation --value c:\\temp -y --allowunofficial")]
+            [InlineData(false, "config set --name cacheLocation --value c:\\temp -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given

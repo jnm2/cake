@@ -79,11 +79,11 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Publish
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("publish \"./src/*\"", result.Args);
+                Assert.Equal("publish ./src/*", result.Args);
             }
 
             [Theory]
-            [InlineData("./src/*", "publish \"./src/*\"")]
+            [InlineData("./src/*", "publish ./src/*")]
             [InlineData("./src/cake artifacts/", "publish \"./src/cake artifacts/\"")]
             [InlineData("./src/cake artifacts/cake binaries", "publish \"./src/cake artifacts/cake binaries\"")]
             public void Should_Quote_Project_Path(string text, string expected)
@@ -117,7 +117,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Publish
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("publish --output \"/Working/artifacts\" --build-base-path \"/Working/temp\" --runtime runtime1 --framework dnxcore50 --configuration Release --version-suffix rc1 --native-subdirectory --no-build", result.Args);
+                Assert.Equal("publish --output /Working/artifacts --build-base-path \"/Working/temp\" --runtime runtime1 --framework dnxcore50 --configuration Release --version-suffix rc1 --native-subdirectory --no-build", result.Args);
             }
         }
     }

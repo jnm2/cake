@@ -65,7 +65,7 @@ namespace Cake.Common.Tools.DotCover
             if (settings.LogFile != null)
             {
                 var logFilePath = settings.LogFile.MakeAbsolute(_environment);
-                builder.AppendSwitch("/LogFile", "=", logFilePath.FullPath.Quote());
+                builder.AppendSwitch("/LogFile", "=", logFilePath.FullPath);
             }
 
             return builder;

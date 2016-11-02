@@ -97,7 +97,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -u \"http://mydomain.com\"", result.Args);
+                Assert.Equal("c:/temp -u \"http://mydomain.com\"", result.Args);
             }
 
             [WindowsFact]
@@ -111,7 +111,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -f \"solution.sln\"", result.Args);
+                Assert.Equal("c:/temp -f \"solution.sln\"", result.Args);
             }
 
             [WindowsFact]
@@ -125,7 +125,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -c \"Release\"", result.Args);
+                Assert.Equal("c:/temp -c Release", result.Args);
             }
 
             [WindowsFact]
@@ -139,7 +139,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -p \"AnyCPU\"", result.Args);
+                Assert.Equal("c:/temp -p \"AnyCPU\"", result.Args);
             }
 
             [WindowsFact]
@@ -153,7 +153,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -b \"master\"", result.Args);
+                Assert.Equal("c:/temp -b \"master\"", result.Args);
             }
 
             [WindowsFact]
@@ -167,7 +167,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -l \"/temp/log.txt\"", result.Args);
+                Assert.Equal("c:/temp -l \"/temp/log.txt\"", result.Args);
             }
 
             [WindowsFact]
@@ -181,7 +181,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -s \"abcdef\"", result.Args);
+                Assert.Equal("c:/temp -s \"abcdef\"", result.Args);
             }
 
             [WindowsFact]
@@ -195,7 +195,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -d \"/Working/pdb\"", result.Args);
+                Assert.Equal("c:/temp -d \"/Working/pdb\"", result.Args);
             }
 
             [WindowsFact]
@@ -209,7 +209,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -powershell", result.Args);
+                Assert.Equal("c:/temp -powershell", result.Args);
             }
 
             [WindowsFact]
@@ -223,7 +223,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -skipverify", result.Args);
+                Assert.Equal("c:/temp -skipverify", result.Args);
             }
 
             [WindowsFact]
@@ -237,7 +237,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitLink
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"c:/temp\" -debug", result.Args);
+                Assert.Equal("c:/temp -debug", result.Args);
             }
         }
     }

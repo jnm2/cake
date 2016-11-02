@@ -96,9 +96,9 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml", result.Args);
             }
 
             [Theory]
@@ -122,8 +122,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/Output=\"/Working/result.xml\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/Output=/Working/result.xml", result.Args);
             }
 
             [Theory]
@@ -141,9 +141,9 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
                              "/ReportType=" + reportTypeString, result.Args);
             }
 
@@ -158,10 +158,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
-                             "/TargetWorkingDir=\"/Working\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
+                             "/TargetWorkingDir=/Working", result.Args);
             }
 
             [Fact]
@@ -176,10 +176,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
-                             "/Scope=\"/Working/*.dll;/Some/**/Other/*.dll\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
+                             "/Scope=/Working/*.dll;/Some/**/Other/*.dll", result.Args);
             }
 
             [Fact]
@@ -194,10 +194,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
-                             "/Filters=\"+:module=Test.*;-:myassembly\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
+                             "/Filters=+:module=Test.*;-:myassembly", result.Args);
             }
 
             [Fact]
@@ -212,10 +212,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
-                             "/AttributeFilters=\"filter1;filter2\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
+                             "/AttributeFilters=filter1;filter2", result.Args);
             }
 
             [Fact]
@@ -229,9 +229,9 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
                              "/DisableDefaultFilters", result.Args);
             }
 
@@ -246,10 +246,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
-                             "/Output=\"/Working/result.xml\" " +
-                             "/LogFile=\"/Working/logfile.log\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
+                             "/Output=/Working/result.xml " +
+                             "/LogFile=/Working/logfile.log", result.Args);
             }
 
             [Fact]
@@ -269,9 +269,9 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/xunit.console.exe\" " +
-                             "/TargetArguments=\"\\\"/Working/Test.dll\\\" -noshadow\" " +
-                             "/Output=\"/Working/result.xml\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/xunit.console.exe " +
+                             "/TargetArguments=\"/Working/Test.dll -noshadow\" " +
+                             "/Output=/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -291,9 +291,9 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Analyse
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Analyse /TargetExecutable=\"/Working/tools/nunit-console.exe\" " +
-                             "/TargetArguments=\"\\\"/Working/Test.dll\\\" -noshadow\" " +
-                             "/Output=\"/Working/result.xml\"", result.Args);
+                Assert.Equal("Analyse /TargetExecutable=/Working/tools/nunit-console.exe " +
+                             "/TargetArguments=\"/Working/Test.dll -noshadow\" " +
+                             "/Output=/Working/result.xml", result.Args);
             }
         }
     }

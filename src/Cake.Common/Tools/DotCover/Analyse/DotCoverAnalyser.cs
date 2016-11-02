@@ -80,7 +80,7 @@ namespace Cake.Common.Tools.DotCover.Analyse
 
             // Set the output file.
             outputPath = outputPath.MakeAbsolute(_environment);
-            builder.AppendSwitch("/Output", "=", outputPath.FullPath.Quote());
+            builder.AppendSwitch("/Output", "=", outputPath.FullPath);
 
             // Set the report type, don't include the default value
             if (settings.ReportType != DotCoverReportType.XML)

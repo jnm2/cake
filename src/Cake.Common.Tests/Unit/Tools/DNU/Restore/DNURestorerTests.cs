@@ -94,7 +94,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore \"/Working/project.json\"", result.Args);
+                Assert.Equal("restore /Working/project.json", result.Args);
             }
 
             [Fact]
@@ -111,7 +111,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore --source \"https://www.example.com/nugetfeed\" --source \"https://www.example.com/nugetfeed2\"", result.Args);
+                Assert.Equal("restore --source https://www.example.com/nugetfeed --source https://www.example.com/nugetfeed2", result.Args);
             }
 
             [Fact]
@@ -128,7 +128,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore --fallbacksource \"https://www.example.com/fallbacknugetfeed\"", result.Args);
+                Assert.Equal("restore --fallbacksource https://www.example.com/fallbacknugetfeed", result.Args);
             }
 
             [Fact]
@@ -145,7 +145,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore --proxy \"exampleproxy\"", result.Args);
+                Assert.Equal("restore --proxy exampleproxy", result.Args);
             }
 
             [Fact]
@@ -179,7 +179,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore --packages \"/Working/packages\"", result.Args);
+                Assert.Equal("restore --packages /Working/packages", result.Args);
             }
 
             [Fact]
@@ -266,7 +266,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore --runtime \"runtime1\" --runtime \"runtime2\"", result.Args);
+                Assert.Equal("restore --runtime runtime1 --runtime runtime2", result.Args);
             }
 
             [Fact]
@@ -293,18 +293,18 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore \"/Working/project.json\"" +
-                             " --source \"https://www.example.com/nugetfeed\"" +
-                             " --source \"https://www.example.com/nugetfeed2\"" +
-                             " --fallbacksource \"https://www.example.com/fallbacknugetfeed\"" +
-                             " --proxy \"exampleproxy\"" +
+                Assert.Equal("restore /Working/project.json" +
+                             " --source https://www.example.com/nugetfeed" +
+                             " --source https://www.example.com/nugetfeed2" +
+                             " --fallbacksource https://www.example.com/fallbacknugetfeed" +
+                             " --proxy exampleproxy" +
                              " --no-cache" +
-                             " --packages \"/Working/packages\"" +
+                             " --packages /Working/packages" +
                              " --ignore-failed-sources" +
                              " --quiet" +
                              " --parallel" +
                              " --lock" +
-                             " --runtime \"runtime1\" --runtime \"runtime2\"",
+                             " --runtime runtime1 --runtime runtime2",
                     result.Args);
             }
         }

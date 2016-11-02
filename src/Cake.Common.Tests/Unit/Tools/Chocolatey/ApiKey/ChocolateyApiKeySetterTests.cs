@@ -143,12 +143,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("apikey -s \"source1\" -k \"apikey1\" -y", result.Args);
+                Assert.Equal("apikey -s source1 -k apikey1 -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -d -y")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -d -y")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -163,8 +163,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -v -y")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -v -y")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -179,8 +179,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -y -f")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -y -f")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -195,8 +195,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -y --noop")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -y --noop")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -211,8 +211,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -y -r")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -y -r")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -227,8 +227,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(5, "apikey -s \"source1\" -k \"apikey1\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(5, "apikey -s source1 -k apikey1 -y --execution-timeout 5")]
+            [InlineData(0, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -243,8 +243,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "apikey -s \"source1\" -k \"apikey1\" -y -c \"c:\\temp\"")]
-            [InlineData("", "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(@"c:\temp", "apikey -s source1 -k apikey1 -y -c c:\\temp")]
+            [InlineData("", "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -259,8 +259,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.ApiKey
             }
 
             [Theory]
-            [InlineData(true, "apikey -s \"source1\" -k \"apikey1\" -y --allowunofficial")]
-            [InlineData(false, "apikey -s \"source1\" -k \"apikey1\" -y")]
+            [InlineData(true, "apikey -s source1 -k apikey1 -y --allowunofficial")]
+            [InlineData(false, "apikey -s source1 -k apikey1 -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given

@@ -125,12 +125,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("feature enable -n \"checkSumFiles\" -y", result.Args);
+                Assert.Equal("feature enable -n checkSumFiles -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -d -y")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -d -y")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -145,8 +145,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -v -y")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -v -y")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -161,8 +161,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -y -f")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -y -f")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -177,8 +177,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -y --noop")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -y --noop")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -193,8 +193,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -y -r")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -y -r")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -209,8 +209,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(5, "feature enable -n \"checkSumFiles\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(5, "feature enable -n checkSumFiles -y --execution-timeout 5")]
+            [InlineData(0, "feature enable -n checkSumFiles -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -225,8 +225,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "feature enable -n \"checkSumFiles\" -y -c \"c:\\temp\"")]
-            [InlineData("", "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(@"c:\temp", "feature enable -n checkSumFiles -y -c c:\\temp")]
+            [InlineData("", "feature enable -n checkSumFiles -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -241,8 +241,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature enable -n \"checkSumFiles\" -y --allowunofficial")]
-            [InlineData(false, "feature enable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature enable -n checkSumFiles -y --allowunofficial")]
+            [InlineData(false, "feature enable -n checkSumFiles -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given
@@ -371,12 +371,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("feature disable -n \"checkSumFiles\" -y", result.Args);
+                Assert.Equal("feature disable -n checkSumFiles -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -d -y")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -d -y")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -391,8 +391,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -v -y")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -v -y")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -407,8 +407,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -y -f")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -y -f")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -423,8 +423,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -y --noop")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -y --noop")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -439,8 +439,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -y -r")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -y -r")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -455,8 +455,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(5, "feature disable -n \"checkSumFiles\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(5, "feature disable -n checkSumFiles -y --execution-timeout 5")]
+            [InlineData(0, "feature disable -n checkSumFiles -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -471,8 +471,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "feature disable -n \"checkSumFiles\" -y -c \"c:\\temp\"")]
-            [InlineData("", "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(@"c:\temp", "feature disable -n checkSumFiles -y -c c:\\temp")]
+            [InlineData("", "feature disable -n checkSumFiles -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -487,8 +487,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Features
             }
 
             [Theory]
-            [InlineData(true, "feature disable -n \"checkSumFiles\" -y --allowunofficial")]
-            [InlineData(false, "feature disable -n \"checkSumFiles\" -y")]
+            [InlineData(true, "feature disable -n checkSumFiles -y --allowunofficial")]
+            [InlineData(false, "feature disable -n checkSumFiles -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given

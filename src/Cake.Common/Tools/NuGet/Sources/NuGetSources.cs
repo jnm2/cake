@@ -149,7 +149,7 @@ namespace Cake.Common.Tools.NuGet.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("sources Add");
+            builder.Append("sources").Append("Add");
 
             AddCommonParameters(name, source, settings, builder);
 
@@ -180,7 +180,7 @@ namespace Cake.Common.Tools.NuGet.Sources
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("sources Remove");
+            builder.Append("sources").Append("Remove");
 
             AddCommonParameters(name, source, settings, builder);
 

@@ -100,7 +100,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\"", result.Args);
+                Assert.Equal("build ./src/*", result.Args);
             }
 
             [Fact]
@@ -118,7 +118,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --framework \"dnx451\" --framework \"dnxcore50\"", result.Args);
+                Assert.Equal("build ./src/* --framework dnx451 --framework dnxcore50", result.Args);
             }
 
             [Fact]
@@ -136,7 +136,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --configuration \"Debug\" --configuration \"Release\"", result.Args);
+                Assert.Equal("build ./src/* --configuration Debug --configuration Release", result.Args);
             }
 
             [Fact]
@@ -154,7 +154,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --out \"/Working/artifacts\"", result.Args);
+                Assert.Equal("build ./src/* --out /Working/artifacts", result.Args);
             }
 
             [Fact]
@@ -172,7 +172,7 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\" --quiet", result.Args);
+                Assert.Equal("build ./src/* --quiet", result.Args);
             }
 
             [Fact]
@@ -193,10 +193,10 @@ namespace Cake.Common.Tests.Unit.Tools.DNU.Build
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("build \"./src/*\"" +
-                             " --framework \"dnx451\" --framework \"dnxcore50\"" +
-                             " --configuration \"Debug\" --configuration \"Release\"" +
-                             " --out \"/Working/artifacts\"" +
+                Assert.Equal("build ./src/*" +
+                             " --framework dnx451 --framework dnxcore50" +
+                             " --configuration Debug --configuration Release" +
+                             " --out /Working/artifacts" +
                              " --quiet",
                     result.Args);
             }

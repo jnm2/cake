@@ -126,7 +126,7 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("push \"/Working/existing.nupkg\" -y", result.Args);
+                Assert.Equal("push /Working/existing.nupkg -y", result.Args);
             }
 
             [Fact]
@@ -140,7 +140,7 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("push \"/Working/existing.nupkg\" -k 1234 -y", result.Args);
+                Assert.Equal("push /Working/existing.nupkg -k 1234 -y", result.Args);
             }
 
             [Fact]
@@ -154,8 +154,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("push \"/Working/existing.nupkg\" " +
-                             "-s \"http://customsource/\" -y", result.Args);
+                Assert.Equal("push /Working/existing.nupkg " +
+                             "-s http://customsource/ -y", result.Args);
             }
 
             [Fact]
@@ -169,12 +169,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("push \"/Working/existing.nupkg\" -t 987 -y", result.Args);
+                Assert.Equal("push /Working/existing.nupkg -t 987 -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -d -y")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -d -y")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -189,8 +189,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -v -y")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -v -y")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -205,8 +205,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -y -f")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -y -f")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -221,8 +221,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -y --noop")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -y --noop")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -237,8 +237,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -y -r")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -y -r")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -253,8 +253,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(5, "push \"/Working/existing.nupkg\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(5, "push /Working/existing.nupkg -y --execution-timeout 5")]
+            [InlineData(0, "push /Working/existing.nupkg -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -269,8 +269,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "push \"/Working/existing.nupkg\" -y -c \"c:\\temp\"")]
-            [InlineData("", "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(@"c:\temp", "push /Working/existing.nupkg -y -c c:\\temp")]
+            [InlineData("", "push /Working/existing.nupkg -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -285,8 +285,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Push
             }
 
             [Theory]
-            [InlineData(true, "push \"/Working/existing.nupkg\" -y --allowunofficial")]
-            [InlineData(false, "push \"/Working/existing.nupkg\" -y")]
+            [InlineData(true, "push /Working/existing.nupkg -y --allowunofficial")]
+            [InlineData(false, "push /Working/existing.nupkg -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given

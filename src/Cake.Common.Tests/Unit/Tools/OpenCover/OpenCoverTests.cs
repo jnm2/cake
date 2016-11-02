@@ -95,9 +95,9 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Theory]
@@ -121,8 +121,8 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -137,10 +137,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
                              "-filter:\"filter1 filter2\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -155,10 +155,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
-                             "-excludebyattribute:\"filter1;filter2\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
+                             "-excludebyattribute:filter1;filter2 " +
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -173,10 +173,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
-                             "-excludebyfile:\"filter1;filter2\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
+                             "-excludebyfile:filter1;filter2 " +
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -198,7 +198,7 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 // Then
                 Assert.Equal("-target:\"/Working/tools/xunit.console.exe\" " +
                              "-targetargs:\"\\\"/Working/Test.dll\\\" -noshadow\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -220,7 +220,7 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 // Then
                 Assert.Equal("-target:\"/Working/tools/nunit-console.exe\" " +
                              "-targetargs:\"\\\"/Working/Test.dll\\\" -noshadow\" " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -234,9 +234,9 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
-                             "-register:Path32 -output:\"/Working/result.xml\"", result.Args);
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
+                             "-register:Path32 -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -250,11 +250,11 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
                              "-register:user " +
                              "-returntargetcode:100 " +
-                             "-output:\"/Working/result.xml\"", result.Args);
+                             "-output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -268,10 +268,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
                              "-skipautoprops " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -285,10 +285,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
                              "-oldStyle " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
 
             [Fact]
@@ -302,10 +302,10 @@ namespace Cake.Common.Tests.Unit.Tools.OpenCover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-target:\"/Working/tools/Test.exe\" " +
-                             "-targetargs:\"-argument\" " +
+                Assert.Equal("-target:/Working/tools/Test.exe " +
+                             "-targetargs:-argument " +
                              "-mergeoutput " +
-                             "-register:user -output:\"/Working/result.xml\"", result.Args);
+                             "-register:user -output:/Working/result.xml", result.Args);
             }
         }
     }

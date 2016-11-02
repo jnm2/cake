@@ -107,7 +107,7 @@ namespace Cake.Common.Tools.SignTool
             // SHA-256.
             if (settings.DigestAlgorithm == SignToolDigestAlgorithm.Sha256)
             {
-                builder.Append("/fd sha256");
+                builder.AppendSwitch("/fd", "sha256");
             }
 
             // TimeStamp server.
@@ -117,7 +117,7 @@ namespace Cake.Common.Tools.SignTool
                 builder.Append("/tr");
                 builder.Append(settings.TimeStampUri.AbsoluteUri);
 
-                builder.Append("/td sha256");
+                builder.AppendSwitch("/td", "sha256");
             }
             else
             {

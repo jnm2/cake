@@ -125,11 +125,7 @@ namespace Cake.Common.Tools.Cake
             {
                 foreach (var argument in settings.Arguments)
                 {
-                    builder.Append(string.Format(
-                        CultureInfo.InvariantCulture,
-                        "-{0}={1}",
-                        argument.Key,
-                        (argument.Value ?? string.Empty).Quote()));
+                    builder.AppendSwitch("-" + argument.Key, "=", argument.Value);
                 }
             }
             return builder;

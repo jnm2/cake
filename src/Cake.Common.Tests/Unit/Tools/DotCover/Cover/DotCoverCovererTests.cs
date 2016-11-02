@@ -96,8 +96,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\"", result.Args);
             }
 
@@ -122,7 +122,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
                              "/Output=\"/Working/result.dcvr\"", result.Args);
             }
 
@@ -137,8 +137,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\" " +
                              "/TargetWorkingDir=\"/Working\"", result.Args);
             }
@@ -155,8 +155,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\" " +
                              "/Scope=\"/Working/*.dll;/Some/**/Other/*.dll\"", result.Args);
             }
@@ -173,8 +173,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\" " +
                              "/Filters=\"+:module=Test.*;-:myassembly\"", result.Args);
             }
@@ -191,10 +191,10 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\" " +
-                             "/AttributeFilters=\"filter1;filter2\"", result.Args);
+                             "/AttributeFilters=filter1;filter2", result.Args);
             }
 
             [Fact]
@@ -208,8 +208,8 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Cover
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("Cover /TargetExecutable=\"/Working/tools/Test.exe\" " +
-                             "/TargetArguments=\"-argument\" " +
+                Assert.Equal("Cover /TargetExecutable=/Working/tools/Test.exe " +
+                             "/TargetArguments=-argument " +
                              "/Output=\"/Working/result.dcvr\" " +
                              "/DisableDefaultFilters", result.Args);
             }

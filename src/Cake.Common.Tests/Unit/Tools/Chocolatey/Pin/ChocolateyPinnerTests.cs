@@ -125,12 +125,12 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pin add -n \"Cake\" -y", result.Args);
+                Assert.Equal("pin add -n Cake -y", result.Args);
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -d -y")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -d -y")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -145,8 +145,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -v -y")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -v -y")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -161,8 +161,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -y -f")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -y -f")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -177,8 +177,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -y --noop")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -y --noop")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -193,8 +193,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -y -r")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -y -r")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -209,8 +209,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(5, "pin add -n \"Cake\" -y --execution-timeout \"5\"")]
-            [InlineData(0, "pin add -n \"Cake\" -y")]
+            [InlineData(5, "pin add -n Cake -y --execution-timeout 5")]
+            [InlineData(0, "pin add -n Cake -y")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -225,8 +225,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "pin add -n \"Cake\" -y -c \"c:\\temp\"")]
-            [InlineData("", "pin add -n \"Cake\" -y")]
+            [InlineData(@"c:\temp", "pin add -n Cake -y -c c:\\temp")]
+            [InlineData("", "pin add -n Cake -y")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -241,8 +241,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
             }
 
             [Theory]
-            [InlineData(true, "pin add -n \"Cake\" -y --allowunofficial")]
-            [InlineData(false, "pin add -n \"Cake\" -y")]
+            [InlineData(true, "pin add -n Cake -y --allowunofficial")]
+            [InlineData(false, "pin add -n Cake -y")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given
@@ -267,7 +267,7 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pin
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pin add -n \"Cake\" --version \"1.0.0\" -y", result.Args);
+                Assert.Equal("pin add -n Cake --version 1.0.0 -y", result.Args);
             }
         }
     }

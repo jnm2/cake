@@ -191,7 +191,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Pack
                     var result = fixture.Run();
 
                     // Then
-                    Assert.Equal("pack -Version \"1.0.0\" \"/Working/existing.temp.nuspec\"", result.Args);
+                    Assert.Equal("pack -Version 1.0.0 \"/Working/existing.temp.nuspec\"", result.Args);
                 }
 
                 [Fact]
@@ -728,7 +728,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Pack
                     var result = fixture.Run();
 
                     // Then
-                    Assert.Equal("pack -Version \"1.0.0\" \"/Working/existing.csproj\"", result.Args);
+                    Assert.Equal("pack -Version 1.0.0 \"/Working/existing.csproj\"", result.Args);
                 }
 
                 [Fact]
@@ -936,7 +936,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Pack
                     var result = fixture.Run();
 
                     // Then
-                    Assert.Equal("pack -Version \"1.0.0\" -OutputDirectory \"/Working\" " +
+                    Assert.Equal("pack -Version 1.0.0 -OutputDirectory \"/Working\" " +
                                  "\"/Working/nonexisting.temp.nuspec\"", result.Args);
                 }
 
@@ -960,7 +960,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Pack
                     var result = fixture.Run();
 
                     // Then
-                    Assert.Equal("pack -Version \"1.0.0\" -OutputDirectory \"/Working\" " +
+                    Assert.Equal("pack -Version 1.0.0 -OutputDirectory \"/Working\" " +
                                  "\"/Working/nonexisting.temp.nuspec\"", result.Args);
                 }
 

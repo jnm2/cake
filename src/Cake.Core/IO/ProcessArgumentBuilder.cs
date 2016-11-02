@@ -119,7 +119,7 @@ namespace Cake.Core.IO
         public static ProcessArgumentBuilder FromString(string value)
         {
             var builder = new ProcessArgumentBuilder();
-            builder.Append(new TextArgument(value));
+            builder.AppendRaw(value);
             return builder;
         }
 

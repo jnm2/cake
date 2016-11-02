@@ -197,7 +197,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitReleaseManager.Create
 
                 // Then
                 Assert.Equal("create -u \"bob\" -p \"password\" " +
-                             "-o \"repoOwner\" -r \"repo\" -m \"1.0.0\"", result.Args);
+                             "-o \"repoOwner\" -r \"repo\" -m 1.0.0", result.Args);
             }
 
             [Fact]
@@ -212,7 +212,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitReleaseManager.Create
 
                 // Then
                 Assert.Equal("create -u \"bob\" -p \"password\" " +
-                             "-o \"repoOwner\" -r \"repo\" -n \"1.0.0\"", result.Args);
+                             "-o \"repoOwner\" -r \"repo\" -n 1.0.0", result.Args);
             }
 
             [Fact]

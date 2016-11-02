@@ -137,11 +137,11 @@ namespace Cake.Common.Tools.XUnit
             {
                 if (settings.MaxThreads.Value == 0)
                 {
-                    builder.Append("-maxthreads unlimited");
+                    builder.AppendSwitch("-maxthreads", "unlimited");
                 }
                 else
                 {
-                    builder.Append("-maxthreads " + settings.MaxThreads.Value);
+                    builder.AppendSwitch("-maxthreads", settings.MaxThreads.Value.ToString());
                 }
             }
 

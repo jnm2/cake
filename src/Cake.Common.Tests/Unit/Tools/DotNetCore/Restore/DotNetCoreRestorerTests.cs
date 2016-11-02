@@ -81,11 +81,11 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Restore
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("restore \"./src/*\"", result.Args);
+                Assert.Equal("restore ./src/*", result.Args);
             }
 
             [Theory]
-            [InlineData("./src/*", "restore \"./src/*\"")]
+            [InlineData("./src/*", "restore ./src/*")]
             [InlineData("./src/cake build/", "restore \"./src/cake build/\"")]
             [InlineData("./src/cake build/cake cli", "restore \"./src/cake build/cake cli\"")]
             public void Should_Quote_Root_Path(string text, string expected)
@@ -125,14 +125,14 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Restore
 
                 // Then
                 Assert.Equal("restore" +
-                             " --packages \"/Working/packages\"" +
+                             " --packages /Working/packages" +
                              " --source \"https://www.example.com/source1\"" +
                              " --source \"https://www.example.com/source2\"" +
                              " --fallbacksource \"https://www.example.com/fallback1\"" +
                              " --fallbacksource \"https://www.example.com/fallback2\"" +
                              " --configfile \"/Working/NuGet.config\"" +
-                             " --infer-runtimes \"runtime1\"" +
-                             " --infer-runtimes \"runtime2\"" +
+                             " --infer-runtimes runtime1" +
+                             " --infer-runtimes runtime2" +
                              " --no-cache --disable-parallel --ignore-failed-sources --force-english-output" +
                              " --verbosity Information", result.Args);
             }

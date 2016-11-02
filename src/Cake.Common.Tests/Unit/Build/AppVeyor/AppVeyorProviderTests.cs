@@ -163,7 +163,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render()
-                        == "PushArtifact \"/Working/file.zip\" -Type Auto"));
+                        == "PushArtifact /Working/file.zip -Type Auto"));
             }
 
             [Theory]
@@ -184,7 +184,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render()
-                        == $"PushArtifact \"/Working/file.zip\" -Type {arg}"));
+                        == $"PushArtifact /Working/file.zip -Type {arg}"));
             }
 
             [Fact]
@@ -202,7 +202,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render()
-                        == "PushArtifact \"/Working/file.zip\" -Type Auto -DeploymentName \"MyApp.Web\""));
+                        == "PushArtifact /Working/file.zip -Type Auto -DeploymentName MyApp.Web"));
             }
 
             [Fact]
@@ -283,7 +283,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 // Then
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
-                    Arg.Is<ProcessSettings>(p => p.Arguments.Render() == "UpdateBuild -Version \"build-123\""));
+                    Arg.Is<ProcessSettings>(p => p.Arguments.Render() == "UpdateBuild -Version build-123"));
             }
         }
 
@@ -365,10 +365,10 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
             }
 
             [Theory]
-            [InlineData("Hello world", AppVeyorMessageCategoryType.Information, null, "\"Hello world\" -Category \"Information\"")]
-            [InlineData("Hello world", AppVeyorMessageCategoryType.Warning, null, "\"Hello world\" -Category \"Warning\"")]
-            [InlineData("Hello world", AppVeyorMessageCategoryType.Error, null, "\"Hello world\" -Category \"Error\"")]
-            [InlineData("Hello world", AppVeyorMessageCategoryType.Error, "Details of message", "\"Hello world\" -Category \"Error\" -Details \"Details of message\"")]
+            [InlineData("Hello world", AppVeyorMessageCategoryType.Information, null, "\"Hello world\" -Category Information")]
+            [InlineData("Hello world", AppVeyorMessageCategoryType.Warning, null, "\"Hello world\" -Category Warning")]
+            [InlineData("Hello world", AppVeyorMessageCategoryType.Error, null, "\"Hello world\" -Category Error")]
+            [InlineData("Hello world", AppVeyorMessageCategoryType.Error, "Details of message", "\"Hello world\" -Category Error -Details \"Details of message\"")]
             public void Should_Add_Message(string message, AppVeyorMessageCategoryType category, string details, string args)
             {
                 // Given
@@ -401,7 +401,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render() ==
-                                                 $"AddMessage \"{message}\" -Category \"Information\""));
+                                                 $"AddMessage \"{message}\" -Category Information"));
             }
 
             [Fact]
@@ -420,7 +420,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render() ==
-                                                 $"AddMessage \"{message}\" -Category \"Warning\""));
+                                                 $"AddMessage \"{message}\" -Category Warning"));
             }
 
             [Fact]
@@ -438,7 +438,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 // Then
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
-                    Arg.Is<ProcessSettings>(p => p.Arguments.Render() == $"AddMessage \"{message}\" -Category \"Error\""));
+                    Arg.Is<ProcessSettings>(p => p.Arguments.Render() == $"AddMessage \"{message}\" -Category Error"));
             }
 
             [Fact]
@@ -458,7 +458,7 @@ namespace Cake.Common.Tests.Unit.Build.AppVeyor
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(p => p.FullPath == "appveyor"),
                     Arg.Is<ProcessSettings>(p => p.Arguments.Render() ==
-                                                 $"AddMessage \"{message}\" -Category \"Error\" -Details \"{exception.ToString()}\""));
+                                                 $"AddMessage \"{message}\" -Category Error -Details \"{exception.ToString()}\""));
             }
         }
     }

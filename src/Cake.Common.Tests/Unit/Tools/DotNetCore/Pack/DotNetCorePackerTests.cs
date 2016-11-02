@@ -79,11 +79,11 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Pack
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pack \"./src/*\"", result.Args);
+                Assert.Equal("pack ./src/*", result.Args);
             }
 
             [Theory]
-            [InlineData("./src/*", "pack \"./src/*\"")]
+            [InlineData("./src/*", "pack ./src/*")]
             [InlineData("./src/cake artifacts/", "pack \"./src/cake artifacts/\"")]
             [InlineData("./src/nuget/cake build", "pack \"./src/nuget/cake build\"")]
             public void Should_Quote_Project_Path(string text, string expected)
@@ -114,7 +114,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Pack
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pack --output \"/Working/artifacts\" --build-base-path \"/Working/temp\" --no-build --configuration Release --version-suffix rc1", result.Args);
+                Assert.Equal("pack --output /Working/artifacts --build-base-path \"/Working/temp\" --no-build --configuration Release --version-suffix rc1", result.Args);
             }
         }
     }

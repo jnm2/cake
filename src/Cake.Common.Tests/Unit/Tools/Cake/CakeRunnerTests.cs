@@ -104,7 +104,7 @@ namespace Cake.Common.Tests.Unit.Tools.Cake
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"/Working/build.cake\"", result.Args);
+                Assert.Equal("/Working/build.cake", result.Args);
             }
 
             [Fact]
@@ -118,7 +118,7 @@ namespace Cake.Common.Tests.Unit.Tools.Cake
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"/Working/build.cake\" -verbosity=Diagnostic", result.Args);
+                Assert.Equal("/Working/build.cake -verbosity=Diagnostic", result.Args);
             }
 
             [Fact]
@@ -134,9 +134,9 @@ namespace Cake.Common.Tests.Unit.Tools.Cake
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("\"/Working/build.cake\" " +
-                             "-target=\"Build\" " +
-                             "-configuration=\"Debug\"", result.Args);
+                Assert.Equal("/Working/build.cake " +
+                             "-target=Build " +
+                             "-configuration=Debug", result.Args);
             }
         }
     }

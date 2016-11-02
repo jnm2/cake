@@ -118,7 +118,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotNetCore.Test
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("test --output \"/Working/artifacts\" --build-base-path \"/Working/temp\" --runtime runtime1 --framework dnxcore50 --configuration Release --no-build", result.Args);
+                Assert.Equal("test --output /Working/artifacts --build-base-path \"/Working/temp\" --runtime runtime1 --framework dnxcore50 --configuration Release --no-build", result.Args);
             }
         }
     }

@@ -140,7 +140,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -NonInteractive", result.Args);
+                Assert.Equal("install Cake -NonInteractive", result.Args);
             }
 
             [Fact]
@@ -154,7 +154,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -RequireConsent -NonInteractive", result.Args);
+                Assert.Equal("install Cake -RequireConsent -NonInteractive", result.Args);
             }
 
             [Fact]
@@ -168,7 +168,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -SolutionDirectory " +
+                Assert.Equal("install Cake -SolutionDirectory " +
                              "\"/Working/solution\" -NonInteractive", result.Args);
             }
 
@@ -183,7 +183,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -Source \"A;B;C\" -NonInteractive", result.Args);
+                Assert.Equal("install Cake -Source \"A;B;C\" -NonInteractive", result.Args);
             }
 
             [Fact]
@@ -197,7 +197,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -NoCache -NonInteractive", result.Args);
+                Assert.Equal("install Cake -NoCache -NonInteractive", result.Args);
             }
 
             [Fact]
@@ -211,14 +211,14 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -DisableParallelProcessing " +
+                Assert.Equal("install Cake -DisableParallelProcessing " +
                              "-NonInteractive", result.Args);
             }
 
             [Theory]
-            [InlineData(NuGetVerbosity.Detailed, "install \"Cake\" -Verbosity detailed -NonInteractive")]
-            [InlineData(NuGetVerbosity.Normal, "install \"Cake\" -Verbosity normal -NonInteractive")]
-            [InlineData(NuGetVerbosity.Quiet, "install \"Cake\" -Verbosity quiet -NonInteractive")]
+            [InlineData(NuGetVerbosity.Detailed, "install Cake -Verbosity detailed -NonInteractive")]
+            [InlineData(NuGetVerbosity.Normal, "install Cake -Verbosity normal -NonInteractive")]
+            [InlineData(NuGetVerbosity.Quiet, "install Cake -Verbosity quiet -NonInteractive")]
             public void Should_Add_Verbosity_To_Arguments_If_Set(NuGetVerbosity verbosity, string expected)
             {
                 // Given
@@ -243,7 +243,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -ConfigFile \"/Working/nuget.config\" " +
+                Assert.Equal("install Cake -ConfigFile \"/Working/nuget.config\" " +
                              "-NonInteractive", result.Args);
             }
 
@@ -259,7 +259,7 @@ namespace Cake.Common.Tests.Unit.Tools.NuGet.Install
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("install \"Cake\" -Source \"A;B;C\" -FallbackSource \"D;E;F\" -NonInteractive", result.Args);
+                Assert.Equal("install Cake -Source \"A;B;C\" -FallbackSource \"D;E;F\" -NonInteractive", result.Args);
             }
         }
 

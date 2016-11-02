@@ -234,10 +234,10 @@ namespace Cake.NuGet.Tests.Unit
                 fixture.ProcessRunner.Received(1).Start(
                     Arg.Is<FilePath>(path => path.FullPath == "/Working/tools/nuget.exe"),
                     Arg.Is<ProcessSettings>(settings =>
-                        settings.Arguments.Render() == "install \"Cake.Foo\" " +
-                            "-OutputDirectory \"/Working/nuget\" " +
-                            "-Source \"https://myget.org/temp/\" " +
-                            "-Version \"1.2.3\" " +
+                        settings.Arguments.Render() == "install Cake.Foo " +
+                            "-OutputDirectory /Working/nuget " +
+                            "-Source https://myget.org/temp/ " +
+                            "-Version 1.2.3 " +
                             "-Prerelease -ExcludeVersion " +
                             "-NonInteractive -NoCache"));
             }

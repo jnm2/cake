@@ -176,8 +176,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -d -y \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -d -y /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_Debug_Flag_To_Arguments_If_Set(bool debug, string expected)
             {
                 // Given
@@ -192,8 +192,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -v -y \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -v -y /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_Verbose_Flag_To_Arguments_If_Set(bool verbose, string expected)
             {
                 // Given
@@ -208,8 +208,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -y -f \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -y -f /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_Force_Flag_To_Arguments_If_Set(bool force, string expected)
             {
                 // Given
@@ -224,8 +224,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -y --noop \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -y --noop /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_Noop_Flag_To_Arguments_If_Set(bool noop, string expected)
             {
                 // Given
@@ -240,8 +240,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -y -r \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -y -r /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_LimitOutput_Flag_To_Arguments_If_Set(bool limitOutput, string expected)
             {
                 // Given
@@ -256,8 +256,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(5, "pack -y --execution-timeout \"5\" \"/Working/existing.temp.nuspec\"")]
-            [InlineData(0, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(5, "pack -y --execution-timeout 5 /Working/existing.temp.nuspec")]
+            [InlineData(0, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_ExecutionTimeout_To_Arguments_If_Set(int executionTimeout, string expected)
             {
                 // Given
@@ -272,8 +272,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(@"c:\temp", "pack -y -c \"c:\\temp\" \"/Working/existing.temp.nuspec\"")]
-            [InlineData("", "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(@"c:\temp", "pack -y -c c:\\temp /Working/existing.temp.nuspec")]
+            [InlineData("", "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_CacheLocation_Flag_To_Arguments_If_Set(string cacheLocation, string expected)
             {
                 // Given
@@ -288,8 +288,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
             }
 
             [Theory]
-            [InlineData(true, "pack -y --allowunofficial \"/Working/existing.temp.nuspec\"")]
-            [InlineData(false, "pack -y \"/Working/existing.temp.nuspec\"")]
+            [InlineData(true, "pack -y --allowunofficial /Working/existing.temp.nuspec")]
+            [InlineData(false, "pack -y /Working/existing.temp.nuspec")]
             public void Should_Add_AllowUnofficial_Flag_To_Arguments_If_Set(bool allowUnofficial, string expected)
             {
                 // Given
@@ -314,8 +314,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pack -y --version \"1.0.0\" " +
-                             "\"/Working/existing.temp.nuspec\"", result.Args);
+                Assert.Equal("pack -y --version 1.0.0 " +
+                             "/Working/existing.temp.nuspec", result.Args);
             }
 
             [Fact]
@@ -522,8 +522,8 @@ namespace Cake.Common.Tests.Unit.Tools.Chocolatey.Pack
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("pack -y --version \"1.0.0\" " +
-                             "\"/Working/nonexisting.temp.nuspec\"", result.Args);
+                Assert.Equal("pack -y --version 1.0.0 " +
+                             "/Working/nonexisting.temp.nuspec", result.Args);
             }
 
             [Fact]

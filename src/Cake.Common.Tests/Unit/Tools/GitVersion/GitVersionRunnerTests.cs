@@ -166,7 +166,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitVersion
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-targetpath \"c:/temp\"", result.Args);
+                Assert.Equal("-targetpath c:/temp", result.Args);
             }
 
             [Fact]
@@ -183,7 +183,7 @@ namespace Cake.Common.Tests.Unit.Tools.GitVersion
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("-url \"http://mygitrepo.co.uk\" -b master -c \"abcdef\" -dynamicRepoLocation \"c:/temp\"", result.Args);
+                Assert.Equal("-url \"http://mygitrepo.co.uk\" -b master -c \"abcdef\" -dynamicRepoLocation c:/temp", result.Args);
             }
 
             [Fact]

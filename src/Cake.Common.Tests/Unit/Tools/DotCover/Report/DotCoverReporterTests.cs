@@ -75,7 +75,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Report
                 // Then
                 Assert.Equal("Report " +
                              "/Source=\"/Working/result.dcvr\" " +
-                             "/Output=\"/Working/result.xml\" " +
+                             "/Output=/Working/result.xml " +
                              "/ReportType=" + reportTypeString, result.Args);
             }
 
@@ -92,7 +92,7 @@ namespace Cake.Common.Tests.Unit.Tools.DotCover.Report
                 // Then
                 Assert.Equal("Report " +
                              "/Source=\"/Working/result.dcvr\" " +
-                             "/Output=\"/Working/result.xml\" " +
+                             "/Output=/Working/result.xml " +
                              "/LogFile=\"/Working/logfile.log\"", result.Args);
             }
         }
