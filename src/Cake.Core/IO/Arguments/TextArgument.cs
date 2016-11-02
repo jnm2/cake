@@ -10,14 +10,26 @@ namespace Cake.Core.IO.Arguments
     public sealed class TextArgument : IProcessArgument
     {
         private readonly string _text;
+        private readonly IProcessArgumentRenderer _renderer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextArgument"/> class.
         /// </summary>
         /// <param name="text">The text.</param>
         public TextArgument(string text)
+            : this(text, StandardProcessArgumentRenderer.Default)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextArgument"/> class.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="renderer">The renderer which handles quoting and escaping. For raw output, pass null.</param>
+        public TextArgument(string text, IProcessArgumentRenderer renderer)
         {
             _text = text;
+            _renderer = renderer;
         }
 
         /// <summary>
@@ -29,7 +41,7 @@ namespace Cake.Core.IO.Arguments
         /// </returns>
         public string Render()
         {
-            return _text ?? string.Empty;
+            return (_renderer != null ? _renderer.Render(_text) : _text) ?? string.Empty;
         }
 
         /// <summary>

@@ -40,6 +40,54 @@ namespace Cake.Core
         }
 
         /// <summary>
+        /// Appends the specified text to the argument builder.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="text">The text to be appended.</param>
+        /// <param name="renderer">The renderer which handles quoting and escaping.</param>
+        /// <returns>The same <see cref="ProcessArgumentBuilder"/> instance so that multiple calls can be chained.</returns>
+        public static ProcessArgumentBuilder Append(this ProcessArgumentBuilder builder, string text, IProcessArgumentRenderer renderer)
+        {
+            builder?.Append(new TextArgument(text, renderer));
+            return builder;
+        }
+
+        /// <summary>
+        /// Prepend the specified text to the argument builder.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="text">The text to be prepended.</param>
+        /// <param name="renderer">The renderer which handles quoting and escaping.</param>
+        /// <returns>The same <see cref="ProcessArgumentBuilder"/> instance so that multiple calls can be chained.</returns>
+        public static ProcessArgumentBuilder Prepend(this ProcessArgumentBuilder builder, string text, IProcessArgumentRenderer renderer)
+        {
+            builder?.Prepend(new TextArgument(text, renderer));
+            return builder;
+        }
+
+        /// <summary>
+        /// Appends the specified text to the argument builder without quoting or escaping, even if necessary. Dangerous.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="text">The text to be appended.</param>
+        /// <returns>The same <see cref="ProcessArgumentBuilder"/> instance so that multiple calls can be chained.</returns>
+        public static ProcessArgumentBuilder AppendRaw(this ProcessArgumentBuilder builder, string text)
+        {
+            return Append(builder, text, (IProcessArgumentRenderer)null);
+        }
+
+        /// <summary>
+        /// Prepend the specified text to the argument builder without quoting or escaping, even if necessary. Dangerous.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="text">The text to be prepended.</param>
+        /// <returns>The same <see cref="ProcessArgumentBuilder"/> instance so that multiple calls can be chained.</returns>
+        public static ProcessArgumentBuilder PrependRaw(this ProcessArgumentBuilder builder, string text)
+        {
+            return Prepend(builder, text, (IProcessArgumentRenderer)null);
+        }
+
+        /// <summary>
         /// Formats and appends the specified text to the argument builder.
         /// </summary>
         /// <param name="builder">The builder.</param>
