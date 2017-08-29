@@ -16,7 +16,7 @@ namespace Cake.Core
         /// </summary>
         /// <param name="context">The Cake Context</param>
         /// <param name="tasksToExecute">The ordered list of tasks which are about to be executed with the target task listed last.</param>
-        public SetupContext(ICakeContext context, IReadOnlyList<string> tasksToExecute)
+        public SetupContext(ICakeContext context, IReadOnlyList<CakeTask> tasksToExecute)
             : base(context)
         {
             TasksToExecute = tasksToExecute;
@@ -26,6 +26,6 @@ namespace Cake.Core
         /// Gets the ordered list of tasks which are about to be executed.
         /// The target task is listed last.
         /// </summary>
-        public IReadOnlyList<string> TasksToExecute { get; }
+        public IReadOnlyList<CakeTask> TasksToExecute { get; }
     }
 }

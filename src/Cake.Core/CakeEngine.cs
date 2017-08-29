@@ -129,18 +129,23 @@ namespace Cake.Core
 
             try
             {
-                var executingTasks = graph.Traverse(target);
+                var executingTaskNames = graph.Traverse(target);
+
+                var executingTasks = new CakeTask[executingTaskNames.Count];
+                for (var i = 0; i < executingTasks.Length; i++)
+                {
+                    var name = executingTaskNames[i];
+                    executingTasks[i] = _tasks.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                    Debug.Assert(executingTasks[i] != null, "Node should not be null.");
+                }
+
                 PerformSetup(strategy, context, executingTasks);
 
                 var stopWatch = new Stopwatch();
                 var report = new CakeReport();
 
-                foreach (var taskNode in executingTasks)
+                foreach (var task in executingTasks)
                 {
-                    // Get the task.
-                    var task = _tasks.FirstOrDefault(x => x.Name.Equals(taskNode, StringComparison.OrdinalIgnoreCase));
-                    Debug.Assert(task != null, "Node should not be null.");
-
                     // Is this the current target?
                     var isTarget = task.Name.Equals(target, StringComparison.OrdinalIgnoreCase);
 
@@ -199,7 +204,7 @@ namespace Cake.Core
         /// </summary>
         public event EventHandler<TaskTeardownEventArgs> TaskTeardown;
 
-        private void PerformSetup(IExecutionStrategy strategy, ICakeContext context, IReadOnlyList<string> tasksToExecute)
+        private void PerformSetup(IExecutionStrategy strategy, ICakeContext context, IReadOnlyList<CakeTask> tasksToExecute)
         {
             var setupContext = new SetupContext(context, tasksToExecute);
             PublishEvent(Setup, new SetupEventArgs(setupContext));

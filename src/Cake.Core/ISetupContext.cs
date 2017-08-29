@@ -15,6 +15,6 @@ namespace Cake.Core
         /// Gets the ordered list of tasks which are about to be executed.
         /// The target task is listed last.
         /// </summary>
-        IReadOnlyList<string> TasksToExecute { get; }
+        IReadOnlyList<CakeTask> TasksToExecute { get; }
     }
 }
