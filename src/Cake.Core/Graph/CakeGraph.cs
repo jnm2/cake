@@ -68,11 +68,11 @@ namespace Cake.Core.Graph
             return _nodes.Any(x => x.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public IEnumerable<string> Traverse(string target)
+        public IReadOnlyList<string> Traverse(string target)
         {
             if (!Exist(target))
             {
-                return Enumerable.Empty<string>();
+                return Array.Empty<string>();
             }
             var result = new List<string>();
             Traverse(target, result);

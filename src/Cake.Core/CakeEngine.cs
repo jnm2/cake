@@ -129,12 +129,13 @@ namespace Cake.Core
 
             try
             {
-                PerformSetup(strategy, context);
+                var executingTasks = graph.Traverse(target);
+                PerformSetup(strategy, context, executingTasks);
 
                 var stopWatch = new Stopwatch();
                 var report = new CakeReport();
 
-                foreach (var taskNode in graph.Traverse(target))
+                foreach (var taskNode in executingTasks)
                 {
                     // Get the task.
                     var task = _tasks.FirstOrDefault(x => x.Name.Equals(taskNode, StringComparison.OrdinalIgnoreCase));
@@ -198,12 +199,13 @@ namespace Cake.Core
         /// </summary>
         public event EventHandler<TaskTeardownEventArgs> TaskTeardown;
 
-        private void PerformSetup(IExecutionStrategy strategy, ICakeContext context)
+        private void PerformSetup(IExecutionStrategy strategy, ICakeContext context, IReadOnlyList<string> tasksToExecute)
         {
-            PublishEvent(Setup, new SetupEventArgs(context));
+            var setupContext = new SetupContext(context, tasksToExecute);
+            PublishEvent(Setup, new SetupEventArgs(setupContext));
             if (_setupAction != null)
             {
-                strategy.PerformSetup(_setupAction, context);
+                strategy.PerformSetup(_setupAction, setupContext);
             }
         }
 

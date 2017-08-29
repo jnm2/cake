@@ -1039,7 +1039,6 @@ namespace Cake.Core.Tests.Unit
                 // Then
                 Assert.NotNull(result);
                 Assert.Equal(engine, result.Sender);
-                Assert.Equal(fixture.Context, result.Arguments.Context);
             }
 
             [Fact]

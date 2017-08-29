@@ -14,13 +14,13 @@ namespace Cake.Core
         /// <summary>
         /// Gets the Cake context.
         /// </summary>
-        public ICakeContext Context { get; }
+        public ISetupContext Context { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SetupEventArgs"/> class.
         /// </summary>
         /// <param name="context">The context.</param>
-        public SetupEventArgs(ICakeContext context)
+        public SetupEventArgs(ISetupContext context)
         {
             Context = context;
         }
