@@ -85,7 +85,7 @@ namespace Cake.Common.Build.TFBuild.Data
             }
             if (TestResultsFiles != null && TestResultsFiles.Any())
             {
-                properties.Add("resultFiles", string.Join(",", TestResultsFiles.Select(filePath => new FilePath(filePath).MakeAbsolute(environment).FullPath.Replace("/", "\\"))));
+                properties.Add("resultFiles", string.Join(",", TestResultsFiles.Select(filePath => new FilePath(filePath).MakeAbsolute(environment).NativePath)));
             }
             return properties;
         }

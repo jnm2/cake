@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
-using System.Collections.Generic;
 
 namespace Cake.Core.IO
 {
@@ -18,6 +17,17 @@ namespace Cake.Core.IO
         /// </summary>
         /// <value>The full path.</value>
         public string FullPath { get; }
+
+        /// <summary>
+        /// Gets the full path using the OS-native separator. Useful with applications that do not recognize separators
+        /// other than the current OS’s.
+        /// </summary>
+        public string NativePath
+        {
+            get => Separator != System.IO.Path.DirectorySeparatorChar
+                ? FullPath.Replace(Separator, System.IO.Path.DirectorySeparatorChar)
+                : FullPath;
+        }
 
         /// <summary>
         /// Gets a value indicating whether or not this path is relative.

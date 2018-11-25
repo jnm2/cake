@@ -50,15 +50,15 @@ namespace Cake.Common.Build.TFBuild.Data
             }
             if (!string.IsNullOrWhiteSpace(SummaryFileLocation))
             {
-                properties.Add("summaryfile", new FilePath(SummaryFileLocation).MakeAbsolute(environment).FullPath.Replace("/", "\\"));
+                properties.Add("summaryfile", new FilePath(SummaryFileLocation).MakeAbsolute(environment).NativePath);
             }
             if (!string.IsNullOrWhiteSpace(ReportDirectory))
             {
-                properties.Add("reportdirectory", new DirectoryPath(ReportDirectory).MakeAbsolute(environment).FullPath.Replace("/", "\\"));
+                properties.Add("reportdirectory", new DirectoryPath(ReportDirectory).MakeAbsolute(environment).NativePath);
             }
             if (AdditionalCodeCoverageFiles != null && AdditionalCodeCoverageFiles.Any())
             {
-                properties.Add("additionalcodecoveragefiles", string.Join(",", AdditionalCodeCoverageFiles.Select(filePath => new FilePath(filePath).MakeAbsolute(environment).FullPath.Replace("/", "\\"))));
+                properties.Add("additionalcodecoveragefiles", string.Join(",", AdditionalCodeCoverageFiles.Select(filePath => new FilePath(filePath).MakeAbsolute(environment).NativePath)));
             }
             return properties;
         }
